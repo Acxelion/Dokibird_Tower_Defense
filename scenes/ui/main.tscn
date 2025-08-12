@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=3 uid="uid://day3ne6tjexcj"]
+
+[ext_resource type="Texture2D" uid="uid://cwnhytpn6og5l" path="res://assets/brown.png" id="1_0ay0p"]
+
+[node name="Main" type="Node2D"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 865.0
+offset_top = 1.0
+offset_right = 1151.0
+offset_bottom = 649.0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VSplitContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VSplitContainer/VBoxContainer"]
+layout_mode = 2
+text = "DRAGOONS"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/VSplitContainer/VBoxContainer"]
+layout_mode = 2
+text = "DOKIUM"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="PanelContainer/VSplitContainer/VBoxContainer"]
+layout_mode = 2
+text = "WAVE:"
+fit_content = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VSplitContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VSplitContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VSplitContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_0ay0p")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VSplitContainer/ScrollContainer/VBoxContainer/TextureRect"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 279.0
+offset_bottom = 50.0
+
+[node name="Button" type="Button" parent="PanelContainer/VSplitContainer/ScrollContainer/VBoxContainer/TextureRect/HBoxContainer"]
+layout_mode = 2
+text = "asdffasdf"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VSplitContainer/ScrollContainer/VBoxContainer/TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Name"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/VSplitContainer/ScrollContainer/VBoxContainer/TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cost"
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/VSplitContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_0ay0p")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VSplitContainer/ScrollContainer/VBoxContainer/TextureRect2"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 279.0
+offset_bottom = 50.0
+
+[node name="Button" type="Button" parent="PanelContainer/VSplitContainer/ScrollContainer/VBoxContainer/TextureRect2/HBoxContainer"]
+layout_mode = 2
+text = "asdffasdf"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VSplitContainer/ScrollContainer/VBoxContainer/TextureRect2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Name"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/VSplitContainer/ScrollContainer/VBoxContainer/TextureRect2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cost"
