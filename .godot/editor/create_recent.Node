@@ -1,5 +1,11 @@
-RichTextLabel
+TextureButton
+AnimationPlayer
+PathFollow2D
+Path2D
+TileMapLayer
+TileMap
 Button
+RichTextLabel
 HBoxContainer
 GridContainer
 VBoxContainer
@@ -7,6 +13,3 @@ TextureRect
 ScrollContainer
 PanelContainer
 VSplitContainer
-Label
-BoxContainer
-AspectRatioContainer

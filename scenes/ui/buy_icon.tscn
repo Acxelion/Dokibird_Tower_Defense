@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://dirb0iov2cxuc"]
+
+[ext_resource type="Texture2D" uid="uid://cwnhytpn6og5l" path="res://assets/brown.png" id="1_xfh3q"]
+[ext_resource type="Script" uid="uid://cr7sennpwqdqn" path="res://scripts/buy_icon.gd" id="2_sor7d"]
+
+[node name="BuyIcon" type="TextureRect" node_paths=PackedStringArray("buy_button", "item_name", "item_cost")]
+texture = ExtResource("1_xfh3q")
+script = ExtResource("2_sor7d")
+buy_button = NodePath("HBoxContainer/BuyButton")
+item_name = NodePath("HBoxContainer/ItemNameLabel")
+item_cost = NodePath("HBoxContainer/ItemCostLabel")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 279.0
+offset_bottom = 50.0
+
+[node name="BuyButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+expand_icon = true
+
+[node name="ItemNameLabel" type="RichTextLabel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Name"
+fit_content = true
+
+[node name="ItemCostLabel" type="RichTextLabel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cost"
+fit_content = true
