@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 TextureButton
 AnimationPlayer
 PathFollow2D
 Path2D
 TileMapLayer
 TileMap
+=======
+AnimationPlayer
+Label
+Node2D
+Timer
+RichTextLabel
+>>>>>>> 15b1a71b919472db378af0f3546ced518dc804cd
 Button
 RichTextLabel
 HBoxContainer
@@ -13,3 +21,8 @@ TextureRect
 ScrollContainer
 PanelContainer
 VSplitContainer
+<<<<<<< HEAD
+=======
+BoxContainer
+AspectRatioContainer
+>>>>>>> 15b1a71b919472db378af0f3546ced518dc804cd
