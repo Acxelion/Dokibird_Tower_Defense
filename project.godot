@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 Globals="*res://scripts/Globals.gd"
 Data="*res://scripts/Data.gd"
 
+[global_group]
+
+enemy="groups for enemies/nesticles"
+
 [input]
 
 Primary={

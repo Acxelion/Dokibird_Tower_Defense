@@ -1,5 +1,8 @@
-res://
-res://assets
-res://scenes/ui
+res://scenes/enemies
+res://assets/resources
+res://scenes/maps
 res://scripts
+res://assets
+res://
+res://scenes/ui
 res://scenes/menus
