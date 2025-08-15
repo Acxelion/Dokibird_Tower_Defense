@@ -19,20 +19,21 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_stbit"]
-size = Vector2(165, 184)
+size = Vector2(67, 75)
 
 [node name="EggProd" type="Node2D"]
 script = ExtResource("1_i7sdw")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_o45xn")
 frame_progress = 0.0774417
 
 [node name="CollisionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
-position = Vector2(3.5, -2)
+position = Vector2(1.5, -0.5)
 shape = SubResource("RectangleShape2D_stbit")
 
 [node name="Timer" type="Timer" parent="."]

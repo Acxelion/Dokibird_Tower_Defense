@@ -1,5 +1,8 @@
 res://scenes/menus/main_menu.tscn
-res://scripts/buy_icon.gd
 res://scenes/dragoons/regularDragoon/tomatoGoon/tomato_goon.tscn
-res://scripts/Data.gd
 res://scenes/ui/buy_icon.tscn
+res://scenes/main/main.tscn
+res://scripts/buy_icon.gd
+res://scenes/dragoons/dokiumProd/eggProd/egg_prod.tscn
+res://scenes/dragoons/regularDragoon/tomatoGoon/tomato.tscn
+res://scenes/dragoons/regularDragoon/tomatoGoon/tomato_impact.tscn
