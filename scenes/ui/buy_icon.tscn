@@ -33,3 +33,5 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Cost"
 fit_content = true
+
+[connection signal="gui_input" from="HBoxContainer/BuyButton" to="." method="_on_buy_button_gui_input"]

@@ -8,15 +8,23 @@ extends Node
 const FULL_HP = "DRAGOONS"
 const ZERO_HP = "NESTICLE"
 
+# Inner class for maintaining turrets
+class Turret_Data:
+	var turret_name: String 	# Name displayed in shop for turret
+	var cost: int				# How much money the turret will cost
+	var description: String		# A short description of the turret
+	var icon: Resource			# Loaded sprite/png of the turret to be used for shop icon
+	var scene: String			# Filepath to scene for the turret in order to later instantiate it
+	
+	func _init(turret_name, cost, description, icon, scene):
+		self.turret_name = turret_name
+		self.cost = cost
+		self.description = description
+		self.icon = icon
+		self.scene = scene
 
-const Turret_Keys = {NAME="name", COST="cost", DESC="description", ICON="icon", SCENE="scene"}
-
-var TURRETS = {
-	"regular_dragoon" = {
-		"name" = "Dragoon",
-		"cost" = 1,
-		"description" = "asdf",
-		"icon" = load("res://assets/test_turret.png"), # should be path to the scene as a string or path object
-		"scene" = "", # should be path to the scene as a string or path object
-	},
+# list containing all the turrets' information as Turret_Data objects
+@onready var TURRETS = {
+	#"regular_dragoon" = Turret_Data.new("Dragoon", 1, "asdf", load("res://assets/test_turret.png"), ""),
+	"egg_prod" = Turret_Data.new("Egg Producer", 100, "Dokium is eggs", load("res://assets/dragoons/egg-prod/01.png"), "res://scenes/dragoons/dokiumProd/eggProd/egg_prod.tscn"),
 }

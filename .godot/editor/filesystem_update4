@@ -1,11 +1,10 @@
-res://scenes/main/main.tscn
-res://scripts/tomato.gd
 res://scenes/dragoons/regularDragoon/tomatoGoon/tomato.tscn
 res://scenes/dragoons/regularDragoon/tomatoGoon/tomato_goon.tscn
-res://scenes/enemies/enemy.tscn
-res://scenes/dragoons/dokiumProd/eggProd/egg_prod.tscn
 res://scenes/dragoons/dokiumProd/eggProd/floating_text.tscn
+res://scenes/enemies/enemy.tscn
 res://scenes/enemies/spawner.tscn
 res://scenes/dragoons/regularDragoon/tomatoGoon/tomato_impact.tscn
-res://scripts/tomato_goon.gd
-res://scenes/dragoons/regularDragoon/tomatoGoon/tomato_impact.gd
+res://scenes/main/main.tscn
+res://scenes/dragoons/dokiumProd/eggProd/egg_prod.tscn
+res://scripts/Data.gd
+res://scripts/enemy.gd

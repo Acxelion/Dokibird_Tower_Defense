@@ -24,6 +24,7 @@ Data="*res://scripts/Data.gd"
 
 enemy="groups for enemies/nesticles"
 turret="group for turrets/dragoons"
+wave_timers="timers for each wave"
 
 [input]
 

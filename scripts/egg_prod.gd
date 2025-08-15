@@ -47,3 +47,7 @@ func _on_timer_timeout() -> void:
 		if anim_player:
 			# Play the animation we created.
 			anim_player.play("float_and_fade")
+			
+# called by game maanger when pause occurs
+func pause():
+	pass
