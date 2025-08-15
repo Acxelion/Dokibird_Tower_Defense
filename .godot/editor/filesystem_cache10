@@ -1,12 +1,14 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1755217836
+::res://::1755252471
 icon.svg::CompressedTexture2D/CompressedTexture2D::1468273693221263489::1754951272::1754951283::1::::<><><>0<>0<>1dcdf3f8a49fc62e823017dda39f833d<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile/TextFile::-1::1754964398::0::1::::<><><>0<>0<><>::
-::res://assets/::1755222006
+::res://assets/::1755249134
 brown.png::CompressedTexture2D/CompressedTexture2D::6344301737977138527::1754960567::1754960570::1::::<><><>0<>0<>bf4fbad274501ebbb328de9df9553f06<>res://.godot/imported/brown.png-2a55ea51c9175d67e631935dc41dfb79.ctex::
 hamburger.png::CompressedTexture2D/CompressedTexture2D::2461384516575089360::1755122443::1755122463::1::::<><><>0<>0<>212e7aeebfa82fb3a7ebf4e340300fd6<>res://.godot/imported/hamburger.png-2bfb8cde93b68f7a99158ea4f2db9537.ctex::
+pause_icon.png::CompressedTexture2D/CompressedTexture2D::2489256579368262430::1755224008::1755224019::1::::<><><>0<>0<>3bedf02e3dd4f58fbc64b4059e43b7b4<>res://.godot/imported/pause_icon.png-191aeb62b0afaed89af867dc8678b54a.ctex::
+play_icon.png::CompressedTexture2D/CompressedTexture2D::4585478243353330275::1755223723::1755224019::1::::<><><>0<>0<>c5a7c6b8c141ba77e395dc57426b1d81<>res://.godot/imported/play_icon.png-575ea231a5b59276a38c93758ff3bed3.ctex::
 test_turret.png::CompressedTexture2D/CompressedTexture2D::8127621094992451477::1755148138::1755148144::1::::<><><>0<>0<>c94f05e85186cb7e61e3f2038c0ba035<>res://.godot/imported/test_turret.png-ad21ab614168b90a9f05eea5eec26617.ctex::
-陣幕.mp3::AudioStreamMP3::4776578157293927844::1755222006::1755222007::1::::<><><>0<>0<>345d1bcb42b604dbc2cbb13816ebe6c0<>res://.godot/imported/陣幕.mp3-8bfb8994e4da5dbbd0d78945f85a128e.mp3str::
+陣幕.mp3::AudioStreamMP3/AudioStreamMP3::4776578157293927844::1755222006::1755222007::1::::<><><>0<>0<>345d1bcb42b604dbc2cbb13816ebe6c0<>res://.godot/imported/陣幕.mp3-8bfb8994e4da5dbbd0d78945f85a128e.mp3str::
 ::res://assets/dragoons/::1755160781
 ::res://assets/dragoons/doki-appr/::1755173387
 01.png::CompressedTexture2D/CompressedTexture2D::3197996700036984605::1755160781::1755173387::1::::<><><>0<>0<>6943e36c23c23c00f0dddcf9878e7e59<>res://.godot/imported/01.png-273d1c5a4b3e48e279767cdfd078e508.ctex::
@@ -21,8 +23,9 @@ test_turret.png::CompressedTexture2D/CompressedTexture2D::8127621094992451477::1
 ::res://assets/dragoons/egg prod/::1755173387
 01.png::CompressedTexture2D/CompressedTexture2D::8863227086453849237::1755160781::1755173387::1::::<><><>0<>0<>abcf8119f32a744481a0a874f3db2c47<>res://.godot/imported/01.png-5e6d6dbe74d1572aebe2aa4d4934968d.ctex::
 02.png::CompressedTexture2D/CompressedTexture2D::4800721077228216468::1755160781::1755173387::1::::<><><>0<>0<>1b32a7c335de4d444b3e7bf88f38113b<>res://.godot/imported/02.png-25fd406b55fb919c3297ab2ac22aeb0e.ctex::
-::res://assets/resources/::1755176427
-map1_route.tres::Curve2D::3367673837953293671::1755176427::0::1::::<><><>0<>0<><>::
+::res://assets/resources/::1755222075
+bgm_test.tres::AudioStreamMP3/AudioStreamMP3::2287824114595233066::1755222075::0::1::::<><><>0<>0<><>::
+map1_route.tres::Curve2D/Curve2D::3367673837953293671::1755176427::0::1::::<><><>0<>0<><>::
 ::res://assets/Tower Defense/::1754962992
 License.txt::TextFile/TextFile::-1::1647775733::0::1::::<><><>0<>0<><>::
 Preview.png::CompressedTexture2D/CompressedTexture2D::183951008763535751::1648024822::1754962992::1::::<><><>0<>0<>94fe0a63785c5ca13b6050462b1fa87e<>res://.godot/imported/Preview.png-94dc58633cd0a7301181ebd19d8c5e7c.ctex::
@@ -633,6 +636,10 @@ towerDefense_tilesheet.png::CompressedTexture2D/CompressedTexture2D::15162888064
 towerDefense_tilesheet@2.png::CompressedTexture2D/CompressedTexture2D::8946691008418213971::1550445087::1754962994::1::::<><><>0<>0<>fa033e6c51315b1a770234483fa9ff83<>res://.godot/imported/towerDefense_tilesheet@2.png-883e67bbe3ea07facc31403e6b99d02d.ctex::
 ::res://assets/Tower Defense/Vector/::1754962993
 towerDefense_vector.svg::CompressedTexture2D/CompressedTexture2D::5560341392728619045::1469788244::1754962993::1::::<><><>0<>0<>39c132c9635c577a68a27915b2a4f347<>res://.godot/imported/towerDefense_vector.svg-8a9553d09be79a6f6aab77a64c83f303.ctex::
+::res://assets/wave_csv/::1755249185
+::res://assets/wave_csv/map1/::1755249495
+delay.csv::Translation::2884142250163591618::1755249495::1755252472::0::::<><><>0<>0<>7ebc25ae3e682092d22efc2b3eacbeea<>::
+waves.csv::Translation::63189401801636110::1755249495::1755252472::0::::<><><>0<>0<>9bb9983c07e2bf2b74e53a6868acb492<>::
 ::res://scenes/::1755160781
 ::res://scenes/dragoons/::1755160781
 ::res://scenes/dragoons/dokiumProd/::1755160781
@@ -643,26 +650,26 @@ floating_text.tscn::PackedScene/PackedScene::919795264569856259::1755160781::0::
 ::res://scenes/dragoons/regularDragoon/::1755160781
 ::res://scenes/dragoons/regularDragoon/tomatoThrow/::1755160781
 tomato_throw.tscn::PackedScene/PackedScene::2296530551940437084::1755160781::0::1::::<><><>0<>0<><>::
-::res://scenes/enemies/::1755218737
-enemy.tscn::PackedScene::5237079803839404518::1755218736::0::1::::<><><>0<>0<><>::uid://dn2cy5frrfrm8::::res://assets/test_turret.png<>uid://dlovgbcawcf1s::::res://scripts/enemy.gd
-spawner.tscn::PackedScene::430214585570918025::1755218737::0::1::::<><><>0<>0<><>::uid://ddfdrjnmum7dd::::res://scripts/path_spawner.gd<>uid://cgu4660gtonic::::res://scenes/enemies/enemy.tscn
+::res://scenes/enemies/::1755252342
+enemy.tscn::PackedScene::5237079803839404518::1755252342::0::1::::<><><>0<>0<><>::uid://dn2cy5frrfrm8::::res://assets/test_turret.png<>uid://dlovgbcawcf1s::::res://scripts/enemy.gd
+spawner.tscn::PackedScene::430214585570918025::1755252342::0::1::::<><><>0<>0<><>::uid://ddfdrjnmum7dd::::res://scripts/path_spawner.gd<>uid://cgu4660gtonic::::res://scenes/enemies/enemy.tscn
 ::res://scenes/globals/::1754952452
-::res://scenes/main/::1755220974
-main.tscn::PackedScene::5776901289476686282::1755220974::0::1::::<><><>0<>0<><>::uid://day3ne6tjexcj::::res://scenes/ui/ui.tscn<>uid://c6numreqhva5g::::res://scripts/main.gd
-::res://scenes/maps/::1755218737
-map1.tscn::PackedScene::3471193917535430507::1755218737::0::1::::<><><>0<>0<><>::uid://vurb4yccg1i7::::res://assets/Tower Defense/Tilesheet/towerDefense_tilesheet.png
-::res://scenes/menus/::1755218736
-main_menu.tscn::PackedScene::8821398556297308454::1755218736::0::1::::<><><>0<>0<><>::uid://owc07vyn17vc::::res://scripts/main_menu.gd
+::res://scenes/main/::1755252436
+main.tscn::PackedScene::5776901289476686282::1755252436::0::1::::<><><>0<>0<><>::uid://day3ne6tjexcj::::res://scenes/ui/ui.tscn<>uid://c6numreqhva5g::::res://scripts/main.gd<>uid://7uiena04164u::::res://assets/resources/bgm_test.tres
+::res://scenes/maps/::1755252342
+map1.tscn::PackedScene::3471193917535430507::1755252342::0::1::::<><><>0<>0<><>::uid://vurb4yccg1i7::::res://assets/Tower Defense/Tilesheet/towerDefense_tilesheet.png
+::res://scenes/menus/::1755252342
+main_menu.tscn::PackedScene::8821398556297308454::1755252342::0::1::::<><><>0<>0<><>::uid://owc07vyn17vc::::res://scripts/main_menu.gd
 ::res://scenes/turrets/::1754951319
-::res://scenes/ui/::1755218736
+::res://scenes/ui/::1755252342
 buy_icon.tscn::PackedScene/PackedScene::7755973026647361126::1755160311::0::1::::<><><>0<>0<><>::uid://cwnhytpn6og5l::::res://assets/brown.png<>uid://cr7sennpwqdqn::::res://scripts/buy_icon.gd
-ui.tscn::PackedScene::7210530667152783865::1755218736::0::1::::<><><>0<>0<><>::uid://dt822xqvf6ptj::::res://scripts/ui.gd<>uid://bbckv40hpuv3u::::res://assets/hamburger.png
-::res://scripts/::1755219890
+ui.tscn::PackedScene::7210530667152783865::1755252342::0::1::::<><><>0<>0<><>::uid://dt822xqvf6ptj::::res://scripts/ui.gd<>uid://bbckv40hpuv3u::::res://assets/hamburger.png
+::res://scripts/::1755252436
 buy_icon.gd::GDScript::6033212550005654329::1755216852::0::1::::<>Node<><>0<>0<><>::
 Data.gd::GDScript::1337689913043150099::1755211843::0::1::::<>Node<><>0<>0<><>::
 enemy.gd::GDScript::7961526446908465034::1755218732::0::1::::<>CharacterBody2D<><>0<>0<><>::
 Globals.gd::GDScript::3005738733158317156::1755219890::0::1::::<>Node<><>0<>0<><>::
-main.gd::GDScript::6976769100163488794::1755219068::0::1::::<>Node<><>0<>0<><>::
+main.gd::GDScript::6976769100163488794::1755252436::0::1::::<>Node<><>0<>0<><>::
 main_menu.gd::GDScript/GDScript::1028227914651903276::1755159767::0::1::::<>Control<><>0<>0<><>::
-path_spawner.gd::GDScript::7380363473603451081::1755218598::0::1::::<>Node2D<><>0<>0<><>::
-ui.gd::GDScript::8562663355042003763::1755211855::0::1::::<>Node<><>0<>0<><>::
+path_spawner.gd::GDScript::7380363473603451081::1755251081::0::1::::<>Node2D<><>0<>0<><>::
+ui.gd::GDScript::8562663355042003763::1755222305::0::1::::<>Node<><>0<>0<><>::

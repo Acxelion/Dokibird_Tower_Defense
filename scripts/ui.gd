@@ -1,12 +1,15 @@
 extends Node
 
 @onready var anim := $AnimationPlayer # assigning AnimationPlayer node to a variable
+@onready var play_button := $PlayButton
 @onready var turrets_container := $PanelContainer/VSplitContainer/ScrollContainer/TurretsContainer
 @onready var health_label := $PanelContainer/VSplitContainer/StatsContainer/HealthLabel
 @onready var currency_label := $PanelContainer/VSplitContainer/StatsContainer/CurrencyLabel
 @onready var wave_label := $PanelContainer/VSplitContainer/StatsContainer/WaveLabel
 
 @onready var buy_icon_path = "res://scenes/ui/buy_icon.tscn"
+
+var toggle_button_response: Callable
 
 func _ready():
 	# populating TurretsContainer with turrets defined in Data.gd
@@ -31,7 +34,11 @@ func _on_button_toggled(toggled_on: bool) -> void:
 		anim.play("open_menu")
 	else: # menu closed
 		anim.play("close_menu")
-		
+
+#
+func _on_play_button_toggled(toggled_on: bool):
+	toggle_button_response.call()
+
 # updates health_label's text given player's current and maximum HP
 func update_health_bar(new_hp: int, max_hp: int):
 	health_label.text = Data.FULL_HP.substr(0, new_hp) + Data.ZERO_HP.substr(new_hp, max_hp)
