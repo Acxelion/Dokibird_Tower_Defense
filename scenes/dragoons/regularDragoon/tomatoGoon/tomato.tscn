@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dajvk40m85qvy"]
+
+[ext_resource type="Texture2D" uid="uid://0prg5xywgygy" path="res://assets/projectiles/projectile.png" id="1_0qnof"]
+[ext_resource type="Script" uid="uid://bdx83krlfjmoh" path="res://scripts/tomato.gd" id="1_y62sn"]
+[ext_resource type="Texture2D" uid="uid://c5etyhai6la5y" path="res://assets/projectiles/projectile2.png" id="3_i4xjs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5crk5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0qnof")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_i4xjs")
+}],
+"loop": true,
+"name": &"impact",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y62sn"]
+radius = 16.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i4xjs"]
+radius = 24.0
+height = 48.0
+
+[node name="Tomato" type="CharacterBody2D"]
+script = ExtResource("1_y62sn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_5crk5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_y62sn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_i4xjs")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
