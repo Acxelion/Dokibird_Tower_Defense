@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cokmyqtumwtrm"]
+
+[ext_resource type="PackedScene" uid="uid://day3ne6tjexcj" path="res://scenes/ui/ui.tscn" id="1_hyk8p"]
+[ext_resource type="Script" uid="uid://c6numreqhva5g" path="res://scripts/main.gd" id="1_iuonh"]
+[ext_resource type="AudioStream" uid="uid://7uiena04164u" path="res://assets/resources/bgm_test.tres" id="3_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://7ypr1g0twnbg" path="res://scenes/dragoons/regularDragoon/tomatoGoon/tomato_goon.tscn" id="4_l3cfh"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_iuonh")
+
+[node name="UI" parent="." instance=ExtResource("1_hyk8p")]
+z_index = 1000
+
+[node name="BgmPlayer" type="AudioStreamPlayer" parent="."]
+editor_description = "https://dova-s.jp/bgm/play21957.html
+licensing found on  this page"
+stream = ExtResource("3_k2fmo")
+volume_db = -80.0
+autoplay = true
+
+[node name="Dragoons" type="Node2D" parent="."]
+
+[node name="tomatoGoon" parent="Dragoons" instance=ExtResource("4_l3cfh")]
+position = Vector2(192, 384)
