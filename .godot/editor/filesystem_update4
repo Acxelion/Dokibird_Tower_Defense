@@ -1,20 +1,5 @@
-<<<<<<< HEAD
 res://scenes/menus/main_menu.tscn
-res://scenes/ui/ui.tscn
-res://scenes/ui/buy_icon.tscn
-res://scenes/dragoons/dokiumProd/eggProd/egg_prod.tscn
-res://scenes/enemies/enemy.tscn
-res://scenes/main/main.tscn
-res://scenes/maps/map1.tscn
-=======
-res://scenes/main/main.tscn
-res://scenes/dragoons/regularDragoon/tomatoGoon/tomato.tscn
+res://scripts/buy_icon.gd
 res://scenes/dragoons/regularDragoon/tomatoGoon/tomato_goon.tscn
-res://scenes/dragoons/dokiumProd/eggProd/floating_text.tscn
-res://scenes/enemies/enemy.tscn
-res://scenes/enemies/spawner.tscn
-res://scenes/dragoons/regularDragoon/tomatoGoon/tomato_impact.tscn
 res://scripts/Data.gd
-res://scripts/enemy.gd
-res://scripts/tomato_goon.gd
->>>>>>> 81919ce3055dc7fc87a4141ebea6238171e1b426
+res://scenes/ui/buy_icon.tscn

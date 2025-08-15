@@ -27,6 +27,6 @@ class Turret_Data:
 @onready var TURRETS = {
 	#"regular_dragoon" = Turret_Data.new("Dragoon", 1, "asdf", load("res://assets/test_turret.png"), ""),
 
-	"egg_prod" = Turret_Data.new("Egg Producer", 100, "Dokium is eggs", load("res://assets/dragoons/egg-prod/01.png"), "res://scenes/dragoons/dokiumProd/eggProd/egg_prod.tscn"),
-
+	"egg_prod" = Turret_Data.new("Egg Producer", 1, "Dokium is eggs", load("res://assets/dragoons/egg-prod/01.png"), "res://scenes/dragoons/dokiumProd/eggProd/egg_prod.tscn"),
+	"tomato_goon" = Turret_Data.new("Tomatogoon", 1, "Tomato Potato", load("res://assets/dragoons/tomato-goon/idle1.png"), "res://scenes/dragoons/regularDragoon/tomatoGoon/tomato_goon.tscn")
 }

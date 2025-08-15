@@ -73,7 +73,14 @@ func _purchase_turret(event: InputEvent) -> void:
 		
 		# checks if colliding with any other turrets
 		get_child(1).process_mode = Node.PROCESS_MODE_ALWAYS
-		is_on_turret = get_child(1).get_child(1).has_overlapping_areas()
+		var found_overlaps: Array[Area2D] = get_child(1).get_node("CollisionArea").get_overlapping_areas() # find all overlapping Area2Ds
+		
+		# define dictionary to collect the unique parents of all found_overlaps
+		var unique_parents: Dictionary = {}
+		for ele in found_overlaps:
+			if ele.get_parent() != get_child(1):	# prevents counting of itself
+				unique_parents.get_or_add(ele.get_parent())
+		is_on_turret = unique_parents.size() != 0
 		
 		if (is_on_path or is_on_turret): # checks if it's a dirt tile or is overlapping a turret
 			get_child(1).set("modulate", Color("ff5465e6")) # make red

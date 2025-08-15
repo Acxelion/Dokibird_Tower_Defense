@@ -49,7 +49,7 @@ radius = 40.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_1v605"]
 radius = 200.16
 
-[node name="TomatoGoon" type="Node2D"]
+[node name="TomatoGoon" type="Node2D" groups=["turret"]]
 script = ExtResource("1_bjp61")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
