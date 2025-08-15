@@ -2,7 +2,9 @@ extends Node
 
 @onready var anim := $AnimationPlayer # assigning AnimationPlayer node to a variable
 @onready var turrets_container := $PanelContainer/VSplitContainer/ScrollContainer/TurretsContainer
-@onready var stats_container := $PanelContainer/VSplitContainer/StatsContainer
+@onready var health_label := $PanelContainer/VSplitContainer/StatsContainer/HealthLabel
+@onready var currency_label := $PanelContainer/VSplitContainer/StatsContainer/CurrencyLabel
+@onready var wave_label := $PanelContainer/VSplitContainer/StatsContainer/WaveLabel
 
 @onready var buy_icon_path = "res://scenes/ui/buy_icon.tscn"
 
@@ -29,3 +31,15 @@ func _on_button_toggled(toggled_on: bool) -> void:
 		anim.play("open_menu")
 	else: # menu closed
 		anim.play("close_menu")
+		
+# updates health_label's text given player's current and maximum HP
+func update_health_bar(new_hp: int, max_hp: int):
+	health_label.text = Data.ZERO_HP.substr(0, new_hp) + Data.FULL_HP.substr(new_hp, max_hp)
+
+# updates currency label to "Dokium: {new_value}"
+func update_currency_label(new_value: int):
+	currency_label.text = "Dokium: " + str(new_value)
+
+# updates wave_label to "{wave_num} / {maximum_wave}"
+func update_wave_label(wave_num: int, maximum_wave: int):
+	wave_label.text = "Wave: " + str(wave_num) + " / " + str(maximum_wave)

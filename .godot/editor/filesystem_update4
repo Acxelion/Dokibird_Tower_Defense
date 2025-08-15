@@ -9,3 +9,8 @@ res://scenes/maps/spawner_map1.tscn
 res://scenes/maps/map1_route.tscn
 res://scenes/enemies/spawner.tscn
 res://scenes/main/main.tscn
+res://scripts/Globals.gd
+res://scripts/main.gd
+res://scripts/ui.gd
+res://scripts/Data.gd
+res://scripts/buy_icon.gd

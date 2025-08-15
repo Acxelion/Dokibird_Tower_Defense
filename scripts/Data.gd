@@ -1,8 +1,13 @@
 ###
-###	ONLY HOLDS DICTIONARIES CONTAINING INFORMATION ABOUT ITEMS/ENEMIES
+###	ONLY HOLDS DICTIONARIES & CONSTS CONTAINING INFORMATION ABOUT ITEMS/ENEMIES
 ###
 
 extends Node
+
+# rather than an HP bar, health will be indicated by how much the string has changed
+const FULL_HP = "DRAGOONS"
+const ZERO_HP = "NESTICLE"
+
 
 const Turret_Keys = {NAME="name", COST="cost", DESC="description", ICON="icon", SCENE="scene"}
 

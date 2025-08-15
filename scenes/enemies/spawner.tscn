@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://gentorditf3f"]
+[gd_scene load_steps=3 format=3 uid="uid://gentorditf3f"]
 
 [ext_resource type="Script" uid="uid://ddfdrjnmum7dd" path="res://scripts/path_spawner.gd" id="1_5oxug"]
+[ext_resource type="PackedScene" uid="uid://cgu4660gtonic" path="res://scenes/enemies/enemy.tscn" id="2_lie5b"]
 
-[node name="Spawner" type="Node2D"]
+[node name="Spawner" type="Node2D" groups=["enemy"]]
 script = ExtResource("1_5oxug")
+enemy_scene = ExtResource("2_lie5b")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true

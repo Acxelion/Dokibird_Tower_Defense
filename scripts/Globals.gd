@@ -3,3 +3,6 @@
 ###
 
 extends Node
+
+# if True, stop all automatic actions
+var PAUSED: bool = false

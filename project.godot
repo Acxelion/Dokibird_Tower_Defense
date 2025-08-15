@@ -23,6 +23,7 @@ Data="*res://scripts/Data.gd"
 [global_group]
 
 enemy="groups for enemies/nesticles"
+turret="group for turrets/dragoons"
 
 [input]
 
