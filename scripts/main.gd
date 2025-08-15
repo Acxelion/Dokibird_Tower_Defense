@@ -10,6 +10,7 @@ extends Node
 @onready var player_health: int = max_player_health
 
 @onready var ui := $UI
+@onready var bgm_player := $BgmPlayer
 
 @onready var spawner_filepaths: Array[String] = ["res://scenes/enemies/spawner.tscn", ]
 @onready var spawners: Array[Node] = []
@@ -106,10 +107,14 @@ func _ready():
 	ui.update_wave_label(current_wave+1, maximum_wave)
 	ui.toggle_button_response = pause_game
 	
+	# start music
+	bgm_player.play()
+	
 	# start first wave
 	wave_timer.timeout.connect(waves[0]._update_delays)
 	waves[0].prepare_wave()
 	wave_timer.start()
+	
 	
 	return
 

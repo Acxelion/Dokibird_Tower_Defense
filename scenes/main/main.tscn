@@ -14,6 +14,5 @@ z_index = 1000
 editor_description = "https://dova-s.jp/bgm/play21957.html
 licensing found on  this page"
 stream = ExtResource("3_k2fmo")
-autoplay = true
 
 [node name="WaveTimer" type="Timer" parent="." groups=["wave_timers"]]
