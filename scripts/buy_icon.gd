@@ -11,6 +11,10 @@ signal turret_purchased(cost: int)
 var assigned_turret # Turret_Data object
 var assigned_turret_data
 
+# used to sore tile mouse is currently hovering over
+var is_on_path: bool
+var is_on_turret: bool
+
 # constructor-like function
 func assign_attributes(assigned_turret_data,):
 	self.assigned_turret_data = assigned_turret_data
@@ -49,29 +53,48 @@ func _purchase_turret(event: InputEvent) -> void:
 	
 	# When left-mouse down
 	if event is InputEventMouseButton and event.button_mask == 1:
-		temp_turret.global_position = event.global_position
+		temp_turret.global_position = event.global_position # assign mouse's location to turret's location
+		add_child(temp_turret) # add turret to tree
 		
-		add_child(temp_turret)
-		
-		temp_turret.top_level = true
-		temp_turret.process_mode = Node.PROCESS_MODE_DISABLED
-		temp_turret.scale = Vector2(0.25,0.25)
+		# adjust temp_turret's properties
+		temp_turret.top_level = true # ensures it's visible
+		temp_turret.process_mode = Node.PROCESS_MODE_DISABLED # prevents it from doing any actions while being dragging around
+		temp_turret.scale = Vector2(0.25,0.25) # scales temp_turret to approriate size
 	
 	# when left-mouse drag
 	elif event is InputEventMouseMotion and event.button_mask == 1:
-		get_child(1).global_position = event.global_position
+		get_child(1).global_position = event.global_position # assign mouse's location to turret's location
+		get_child(1).z_index = 500 # makes sure the temp_turret is on top
+		
+		# check if currently hovered-over tile is not dirt
+		var map_path: TileMapLayer = get_tree().get_root().get_node("GameManager/Map1/TileMapLayer") # gets tileMapLayer
+		var tile: Vector2i = map_path.local_to_map(event.global_position) # translates hovering location to a coordinate on the map
+		is_on_path = Vector2i(1,4) == map_path.get_cell_atlas_coords(tile) # translate map coordinate to a coordinate in tileset
+		
+		# checks if colliding with any other turrets
+		get_child(1).process_mode = Node.PROCESS_MODE_ALWAYS
+		is_on_turret = get_child(1).get_child(1).has_overlapping_areas()
+		
+		if (is_on_path or is_on_turret): # checks if it's a dirt tile or is overlapping a turret
+			get_child(1).set("modulate", Color("ff5465e6")) # make red
+		else:
+			get_child(1).set("modulate", Color("ffffff")) # restore
 		
 	# when left-mouse released
 	elif event is InputEventMouseButton and event.button_mask == 0:
+		# removes temp_turret following mouse
 		if get_child_count() > 1:
 			get_child(1).queue_free()
 		
-		var path = get_tree().get_root()
-		path.add_child(temp_turret)
-		temp_turret.global_position = event.global_position
-		temp_turret.scale = Vector2(0.25,0.25)
-		
-		turret_purchased.emit(assigned_turret_data.cost)
+		if not (is_on_path or is_on_turret): # checks if it's a dirt tile or overlapping a turret
+			var path = get_tree().get_root() # gets root of scene
+			path.add_child(temp_turret) # adds temp_turret to scene tree
+			temp_turret.global_position = event.global_position # assigns its position to where the mouse is
+			temp_turret.scale = Vector2(0.25,0.25) # scale to size
+			
+			turret_purchased.emit(assigned_turret_data.cost) # emit signal to inform successful turret purchase
+			
+	# catch-all, any other input could allow cancelling of purchase
 	else:
 		if get_child_count() > 1:
 			get_child(1).queue_free()
