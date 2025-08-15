@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var base_speed: int = 100
+@export var base_speed: int = 1000
 @export var base_health: int = 1
 @export var base_damage: int = 1
 @export var value: int = 1

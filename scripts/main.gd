@@ -43,6 +43,7 @@ class Wave:
 		# tell each spawner how many enemies it will spawn this wave
 		for idx in range(len(quantity)):
 			spawners[idx].set_num_of_enemies_to_spawn(quantity[idx])
+			spawners[idx].enemies_spawned = 0
 		
 	# called every second by wave_timer to lower all elements in delay by one
 	# if any element in delay hits ZERO, starts corresponding spawner
@@ -51,6 +52,7 @@ class Wave:
 			if delay[i] == 0:
 				spawners[i].start_spawner()
 			delay[i] = delay[i] - 1
+		print("WaveTimer one tick %s" % [str(delay[0]),])
 
 # given a pair of paths to CSV files, populates waves with a list of Wave objects
 func instantiate_waves(quantity_path: String, delay_path: String, spawners: Array):
@@ -64,8 +66,10 @@ func instantiate_waves(quantity_path: String, delay_path: String, spawners: Arra
 		var quantity_csv_row: Array = quantity_file.get_csv_line() # delimiter is "," by default
 		var delay_csv_row: Array = delay_file.get_csv_line()
 		
+		# convert csv files to an array of integers
 		var q_arr: Array = quantity_csv_row.map(func(element): return int(element))
 		var d_arr: Array = delay_csv_row.map(func(element): return int(element))
+		
 		waves.append(Wave.new(q_arr, d_arr, spawners))
 	
 	quantity_file.close() # close the quantity file
@@ -93,6 +97,8 @@ func _ready():
 	
 	# instantiate waves
 	instantiate_waves(path_to_wave_quantity, path_to_wave_delay, spawners)
+	waves.resize(len(waves)-1)
+	maximum_wave = len(waves)
 	
 	# update labels
 	ui.update_health_bar(player_health, max_player_health)
@@ -121,11 +127,30 @@ func pause_game():
 	# call pause function of every relevant element 
 	get_tree().call_group("enemy","pause")
 	get_tree().call_group("turret","pause")
-	get_tree().call_group("wave_timers","stop")
+	get_tree().call_group("wave_timers","set_paused", paused)
 	
+func game_win():
+	print("GAME VICTORY")
+	
+func game_over():
+	print("GAME OVER")
+
 # called when a wave is completed
 func wave_finished():
 	print("WAVE FINISHED")
+	
+	# setup next wave
+	wave_timer.disconnect("timeout", waves[current_wave]._update_delays)
+	current_wave = current_wave + 1
+	if current_wave >= maximum_wave:
+		game_win()
+	else:
+		ui.update_wave_label(current_wave+1, maximum_wave)
+		wave_timer.timeout.connect(waves[current_wave]._update_delays)
+		waves[current_wave].prepare_wave()
+		
+		# pause game
+		ui.play_button.set_pressed(paused)
 
 func _on_enemy_spawned(enemy):
 	pass
@@ -147,7 +172,7 @@ func _on_enemy_attacks(damage_taken: int):
 	
 	# calls game over function if player's health hits zero
 	if player_health == 0:
-		print("Game Over")
+		game_over()
 	
 	# updates tracker of wave's remaining enemies
 	waves[current_wave].enemies_remaining = waves[current_wave].enemies_remaining - 1

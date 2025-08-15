@@ -5,7 +5,7 @@ extends Node2D
 
 # assign when instancing as a child of a map
 @export var travel_path: Resource
-@export var spawn_rate: int = 5 # spawns every how many seconds
+@export var spawn_rate: int = 1 # spawns every how many seconds
 
 @onready var spawn_timer := $SpawnTimer
 
@@ -34,6 +34,7 @@ func set_num_of_enemies_to_spawn(target: int):
 
 func start_spawner():
 	spawn_timer.start()
+	spawn_timer.set_paused(false)
 	spawn_timer.timeout.emit()
 
 #

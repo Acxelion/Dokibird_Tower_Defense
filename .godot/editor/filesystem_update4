@@ -7,3 +7,6 @@ res://scenes/maps/map1.tscn
 res://scenes/enemies/spawner.tscn
 res://scripts/path_spawner.gd
 res://scripts/ui.gd
+res://scripts/enemy.gd
+res://assets/wave_csv/map1/waves.csv
+res://assets/wave_csv/map1/delay.csv
