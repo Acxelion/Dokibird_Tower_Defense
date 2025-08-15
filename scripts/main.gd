@@ -110,13 +110,12 @@ func _ready():
 	# start music
 	bgm_player.play()
 	
-	# start first wave
+	# prepare first wave
 	wave_timer.timeout.connect(waves[0]._update_delays)
 	waves[0].prepare_wave()
-	wave_timer.start()
 	
-	
-	return
+	# pause game
+	ui.play_button.set_pressed(paused)
 
 func _input(event):
 	if event.is_action_pressed("Pause"):

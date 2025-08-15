@@ -16,3 +16,4 @@ licensing found on  this page"
 stream = ExtResource("3_k2fmo")
 
 [node name="WaveTimer" type="Timer" parent="." groups=["wave_timers"]]
+autostart = true

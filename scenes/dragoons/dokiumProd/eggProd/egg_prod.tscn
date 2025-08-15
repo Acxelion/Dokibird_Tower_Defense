@@ -21,7 +21,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_stbit"]
 size = Vector2(165, 184)
 
-[node name="eggProd" type="Node2D"]
+[node name="eggProd" type="Node2D" groups=["turret"]]
 script = ExtResource("1_i7sdw")
 metadata/_edit_group_ = true
 

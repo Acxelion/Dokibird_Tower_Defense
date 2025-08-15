@@ -25,5 +25,6 @@ class Turret_Data:
 
 # list containing all the turrets' information as Turret_Data objects
 @onready var TURRETS = {
-	"regular_dragoon" = Turret_Data.new("Dragoon", 1, "asdf", load("res://assets/test_turret.png"), ""),
+	#"regular_dragoon" = Turret_Data.new("Dragoon", 1, "asdf", load("res://assets/test_turret.png"), ""),
+	"egg_prod" = Turret_Data.new("Egg Producer", 1, "Dokium is eggs", load("res://assets/dragoons/egg prod/01.png"), "res://scenes/dragoons/dokiumProd/eggProd/egg_prod.tscn"),
 }

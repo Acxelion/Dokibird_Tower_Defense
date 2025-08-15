@@ -19,14 +19,16 @@ func _ready():
 		
 		
 		# load and instantiate buy_icon scene
-		var turret_scene = load(buy_icon_path)
-		var turret_purchase_icon = turret_scene.instantiate()
+		var buy_turret_scene = load(buy_icon_path)
+		var buy_turret_btn = buy_turret_scene.instantiate()
 		
 		# add scene into turrets_container as a child
-		turrets_container.add_child(turret_purchase_icon)
+		turrets_container.add_child(buy_turret_btn)
 		
-		# assign values to turret_purchase_icon
-		turret_purchase_icon.update_buy_icon(current_item.turret_name, current_item.cost, current_item.icon)
+		# assign values to buy_turret_btn
+		buy_turret_btn.update_buy_icon(current_item.turret_name, current_item.cost, current_item.icon)
+		buy_turret_btn.assign_attributes(current_item)
+		# buy_turret_btn.buy_button.gui_input.connect(func (x): print("asfd"))
 	
 	return
 	
