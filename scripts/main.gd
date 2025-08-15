@@ -63,4 +63,5 @@ func _on_enemy_destroyed(money_earned: int):
 	pass
 	
 func _on_enemy_attacks(damage_taken: int):
-	pass
+	player_health = player_health - damage_taken
+	ui.update_health_bar(player_health, max_player_health)

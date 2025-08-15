@@ -34,7 +34,7 @@ func _on_button_toggled(toggled_on: bool) -> void:
 		
 # updates health_label's text given player's current and maximum HP
 func update_health_bar(new_hp: int, max_hp: int):
-	health_label.text = Data.ZERO_HP.substr(0, new_hp) + Data.FULL_HP.substr(new_hp, max_hp)
+	health_label.text = Data.FULL_HP.substr(0, new_hp) + Data.ZERO_HP.substr(new_hp, max_hp)
 
 # updates currency label to "Dokium: {new_value}"
 func update_currency_label(new_value: int):

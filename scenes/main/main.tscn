@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cokmyqtumwtrm"]
+[gd_scene load_steps=4 format=3 uid="uid://cokmyqtumwtrm"]
 
 [ext_resource type="PackedScene" uid="uid://day3ne6tjexcj" path="res://scenes/ui/ui.tscn" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://c6numreqhva5g" path="res://scripts/main.gd" id="1_iuonh"]
+[ext_resource type="AudioStream" uid="uid://7uiena04164u" path="res://assets/resources/bgm_test.tres" id="3_k2fmo"]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_iuonh")
 
 [node name="UI" parent="." instance=ExtResource("1_hyk8p")]
+z_index = 1000
+
+[node name="BgmPlayer" type="AudioStreamPlayer" parent="."]
+editor_description = "https://dova-s.jp/bgm/play21957.html
+licensing found on  this page"
+stream = ExtResource("3_k2fmo")
+autoplay = true
