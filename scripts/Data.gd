@@ -29,6 +29,4 @@ class Turret_Data:
 
 	"egg_prod" = Turret_Data.new("Egg Producer", 100, "Dokium is eggs", load("res://assets/dragoons/egg-prod/01.png"), "res://scenes/dragoons/dokiumProd/eggProd/egg_prod.tscn"),
 
-	"egg_prod" = Turret_Data.new("Egg Producer", 1, "Dokium is eggs", load("res://assets/dragoons/egg prod/01.png"), "res://scenes/dragoons/dokiumProd/eggProd/egg_prod.tscn"),
-
 }

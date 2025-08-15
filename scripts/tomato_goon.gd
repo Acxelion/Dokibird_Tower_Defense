@@ -20,8 +20,8 @@ func _process(delta):
 		# If the current target is no longer valid, stop the animation
 		# and clear out any remaining projectiles.
 		$AnimatedSprite2D.play("idle")
-		#for i in get_node("TomatoContainer").get_child_count():
-		#	get_node("TomatoContainer").get_child(i).queue_free()
+		for i in get_node("TomatoContainer").get_child_count():
+			get_node("TomatoContainer").get_child(i).queue_free()
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if "Enemy" in body.name:
