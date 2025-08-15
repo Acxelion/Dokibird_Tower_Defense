@@ -10,3 +10,4 @@ res://scenes/main/main.tscn
 res://scenes/dragoons/dokiumProd/eggProd/floating_text.tscn
 res://scenes/dragoons/dokiumProd/eggProd/egg_prod.gd
 res://scripts/main.gd
+res://scripts/Globals.gd

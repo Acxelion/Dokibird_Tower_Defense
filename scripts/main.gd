@@ -1,14 +1,5 @@
 extends Node
 
-@export var maximum_wave: int = 10
-@onready var current_wave: int = 0
-
-@export var starting_wealth: int = 100
-@onready var wallet: int = starting_wealth
-
-@export var max_player_health: int = 8
-@onready var player_health: int = max_player_health
-
 @onready var ui := $UI
 @onready var bgm_player := $BgmPlayer
 
@@ -99,12 +90,12 @@ func _ready():
 	# instantiate waves
 	instantiate_waves(path_to_wave_quantity, path_to_wave_delay, spawners)
 	waves.resize(len(waves)-1)
-	maximum_wave = len(waves)
+	Globals.maximum_wave = len(waves)
 	
 	# update labels
-	ui.update_health_bar(player_health, max_player_health)
-	ui.update_currency_label(wallet)
-	ui.update_wave_label(current_wave+1, maximum_wave)
+	ui.update_health_bar(Globals.player_health, Globals.max_player_health)
+	ui.update_currency_label(Globals.wallet)
+	ui.update_wave_label(Globals.current_wave+1, Globals.maximum_wave)
 	ui.toggle_button_response = pause_game
 	
 	# start music
@@ -113,6 +104,7 @@ func _ready():
 	# prepare first wave
 	wave_timer.timeout.connect(waves[0]._update_delays)
 	waves[0].prepare_wave()
+	#wave_timer.start()
 	
 	# pause game
 	ui.play_button.set_pressed(paused)
@@ -123,6 +115,10 @@ func _input(event):
 		ui.play_button.set_pressed(paused) # can call this over pause_game() b/c signal wil call pause_game()
 	
 	pass
+
+func on_turret_purchase(cost: int):
+	self.wallet = self.wallet - cost
+	ui.update_currency_label(self.wallet)
 
 func pause_game():
 	# update pause variable
@@ -144,14 +140,14 @@ func wave_finished():
 	print("WAVE FINISHED")
 	
 	# setup next wave
-	wave_timer.disconnect("timeout", waves[current_wave]._update_delays)
-	current_wave = current_wave + 1
-	if current_wave >= maximum_wave:
+	wave_timer.disconnect("timeout", waves[Globals.current_wave]._update_delays)
+	Globals.current_wave = Globals.current_wave + 1
+	if Globals.current_wave >= Globals.maximum_wave:
 		game_win()
 	else:
-		ui.update_wave_label(current_wave+1, maximum_wave)
-		wave_timer.timeout.connect(waves[current_wave]._update_delays)
-		waves[current_wave].prepare_wave()
+		ui.update_wave_label(Globals.current_wave+1, Globals.maximum_wave)
+		wave_timer.timeout.connect(waves[Globals.current_wave]._update_delays)
+		waves[Globals.current_wave].prepare_wave()
 		
 		# pause game
 		ui.play_button.set_pressed(paused)
@@ -161,26 +157,26 @@ func _on_enemy_spawned(enemy):
 	
 func _on_enemy_destroyed(money_earned: int):
 	# gives money to player equal to destroyed enemy's worth
-	wallet = wallet + money_earned
-	ui.update_currency_label(wallet)
+	Globals.wallet = Globals.wallet + money_earned
+	ui.update_currency_label(Globals.wallet)
 	
 	# updates tracker of wave's remaining enemies
-	waves[current_wave].enemies_remaining = waves[current_wave].enemies_remaining - 1
-	if waves[current_wave].enemies_remaining <= 0: # calls wave_finished() if no more enemies remain
+	waves[Globals.current_wave].enemies_remaining = waves[Globals.current_wave].enemies_remaining - 1
+	if waves[Globals.current_wave].enemies_remaining <= 0: # calls wave_finished() if no more enemies remain
 		wave_finished()
 	
 func _on_enemy_attacks(damage_taken: int):
 	# updates player's health and corresponding label
-	player_health = player_health - damage_taken
-	ui.update_health_bar(player_health, max_player_health)
+	Globals.player_health = Globals.player_health - damage_taken
+	ui.update_health_bar(Globals.player_health, Globals.max_player_health)
 	
 	# calls game over function if player's health hits zero
-	if player_health == 0:
+	if Globals.player_health == 0:
 		game_over()
 	
 	# updates tracker of wave's remaining enemies
-	waves[current_wave].enemies_remaining = waves[current_wave].enemies_remaining - 1
-	if waves[current_wave].enemies_remaining <= 0: # calls wave_finished() if no more enemies remain
+	waves[Globals.current_wave].enemies_remaining = waves[Globals.current_wave].enemies_remaining - 1
+	if waves[Globals.current_wave].enemies_remaining <= 0: # calls wave_finished() if no more enemies remain
 		wave_finished()
 
 func _on_spawner_finished():

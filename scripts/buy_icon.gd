@@ -5,8 +5,7 @@ extends Node
 @export var item_name: RichTextLabel
 @export var item_cost: RichTextLabel
 
-# define a variable to store function to be called by buy_button.gui_input signal
-@onready var func_for_gui_input: Callable
+signal turret_purchased(cost: int)
 
 # information regarding corresponding turret
 var assigned_turret # Turret_Data object
@@ -36,10 +35,17 @@ func change_buy_icon(icon: Texture2D, h_alignment: HorizontalAlignment = 0, v_al
 
 # exposes gui_input signal to parents
 func _on_buy_button_gui_input(event: InputEvent) -> void:
+	if Globals.wallet >= assigned_turret_data.cost:
+		_purchase_turret(event)
+	else:
+		if event is InputEventMouseButton and event.button_mask == 1:
+			self.set("modulate", Color("ffffff48"))
+		elif event is InputEventMouseButton and event.button_mask == 0:
+			self.set("modulate", Color("ffffff"))
+
+func _purchase_turret(event: InputEvent) -> void:
 	# instantiate turret object
 	var temp_turret = assigned_turret.instantiate()
-	
-	print(event, "\n")
 	
 	# When left-mouse down
 	if event is InputEventMouseButton and event.button_mask == 1:
@@ -65,6 +71,7 @@ func _on_buy_button_gui_input(event: InputEvent) -> void:
 		temp_turret.global_position = event.global_position
 		temp_turret.scale = Vector2(0.25,0.25)
 		
+		turret_purchased.emit(assigned_turret_data.cost)
 	else:
 		if get_child_count() > 1:
 			get_child(1).queue_free()

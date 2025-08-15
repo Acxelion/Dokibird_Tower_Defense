@@ -17,7 +17,6 @@ func _ready():
 		# current turret
 		var current_item = Data.TURRETS[key]
 		
-		
 		# load and instantiate buy_icon scene
 		var buy_turret_scene = load(buy_icon_path)
 		var buy_turret_btn = buy_turret_scene.instantiate()
@@ -28,10 +27,14 @@ func _ready():
 		# assign values to buy_turret_btn
 		buy_turret_btn.update_buy_icon(current_item.turret_name, current_item.cost, current_item.icon)
 		buy_turret_btn.assign_attributes(current_item)
-		# buy_turret_btn.buy_button.gui_input.connect(func (x): print("asfd"))
+		buy_turret_btn.turret_purchased.connect(_on_turret_purchase)
 	
 	return
-	
+
+func _on_turret_purchase(cost: int):
+	Globals.wallet = Globals.wallet - cost
+	update_currency_label(Globals.wallet)
+
 # When MenuButton is clicked, plays one of two animations
 func _on_button_toggled(toggled_on: bool) -> void:
 	if toggled_on: # menu opened
