@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://7ypr1g0twnbg"]
+
+[ext_resource type="Texture2D" uid="uid://dsur8vvy7wofi" path="res://assets/dragoons/tomato-goon/idle1.png" id="1_521pj"]
+[ext_resource type="Script" uid="uid://brdetnfr6e7ek" path="res://scripts/tomato_goon.gd" id="1_bjp61"]
+[ext_resource type="Texture2D" uid="uid://dsq6ishwvl87h" path="res://assets/dragoons/tomato-goon/idle2.png" id="2_66oip"]
+[ext_resource type="Texture2D" uid="uid://de4ivefkjseg6" path="res://assets/dragoons/tomato-goon/shooting1.png" id="3_axql4"]
+[ext_resource type="Texture2D" uid="uid://bke2b45msb2h5" path="res://assets/dragoons/tomato-goon/shooting2.png" id="4_bjp61"]
+[ext_resource type="Texture2D" uid="uid://bdr5q0ucc4upm" path="res://assets/dragoons/tomato-goon/shooting3.png" id="5_4kbq5"]
+[ext_resource type="Texture2D" uid="uid://5jioa4bl5qxo" path="res://assets/dragoons/tomato-goon/shooting4.png" id="6_ddssb"]
+[ext_resource type="Texture2D" uid="uid://bo5tqfbf21bsw" path="res://assets/dragoons/tomato-goon/shooting5.png" id="7_81i4s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yaxid"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_521pj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_66oip")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_axql4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bjp61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4kbq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ddssb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_81i4s")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0k0n"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1v605"]
+radius = 144.0
+
+[node name="TomatoGoon" type="Node2D"]
+script = ExtResource("1_bjp61")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_yaxid")
+animation = &"shoot"
+
+[node name="CollisionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+shape = SubResource("CircleShape2D_d0k0n")
+
+[node name="Aim" type="Marker2D" parent="."]
+position = Vector2(40, 0)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+visible = false
+shape = SubResource("CircleShape2D_1v605")
+
+[node name="TomatoContainer" type="Node" parent="."]
+
+[node name="FireTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
