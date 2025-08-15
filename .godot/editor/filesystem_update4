@@ -11,3 +11,4 @@ res://scenes/dragoons/dokiumProd/eggProd/floating_text.tscn
 res://scenes/dragoons/dokiumProd/eggProd/egg_prod.gd
 res://scripts/main.gd
 res://scripts/Globals.gd
+res://scenes/maps/map1.tscn
