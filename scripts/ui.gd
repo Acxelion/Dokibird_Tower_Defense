@@ -14,6 +14,9 @@ var toggle_button_response: Callable
 func _ready():
 	# populating TurretsContainer with turrets defined in Data.gd
 	for key in Data.TURRETS.keys(): # name, cost, description, icon, scene
+		# current turret
+		var current_item = Data.TURRETS[key]
+		
 		
 		# load and instantiate buy_icon scene
 		var turret_scene = load(buy_icon_path)
@@ -23,8 +26,7 @@ func _ready():
 		turrets_container.add_child(turret_purchase_icon)
 		
 		# assign values to turret_purchase_icon
-		var curr_turret = Data.TURRETS[key]
-		turret_purchase_icon.update_buy_icon(curr_turret["name"], curr_turret["cost"], curr_turret["icon"])
+		turret_purchase_icon.update_buy_icon(current_item.turret_name, current_item.cost, current_item.icon)
 	
 	return
 	
