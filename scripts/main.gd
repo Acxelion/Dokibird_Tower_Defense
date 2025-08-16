@@ -179,6 +179,8 @@ func _on_enemy_attacks(damage_taken: int):
 	Globals.player_health = Globals.player_health - damage_taken
 	ui.update_health_bar(Globals.player_health, Globals.max_player_health)
 	
+	SfxManager.play_sfx(Data.dokibird_grunt_sfx)
+	
 	# calls game over function if player's health hits zero
 	if Globals.player_health == 0:
 		game_over()

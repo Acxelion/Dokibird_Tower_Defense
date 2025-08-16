@@ -17,3 +17,5 @@ res://scripts/tomato.gd
 res://scripts/ui.gd
 res://scripts/main_menu.gd
 res://scripts/egg_prod.gd
+res://assets/resources/dokibird_grunt.tres
+res://scripts/Data.gd

@@ -4,6 +4,8 @@
 
 extends Node
 
+var dokibird_grunt_sfx: AudioStream = preload("res://assets/sfx/dokibird_grunt.wav")
+
 # rather than an HP bar, health will be indicated by how much the string has changed
 const FULL_HP = "DRAGOONS"
 const ZERO_HP = "NESTICLE"
