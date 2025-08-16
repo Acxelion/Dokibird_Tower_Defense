@@ -23,3 +23,5 @@ res://scenes/dragoons/dokiumProd/appraisalProd/appraisal_prod.tscn
 res://scripts/indoctrination_prod.gd
 res://scenes/dragoons/dokiumProd/indoctrinationProd/indoctrination_prod.tscn
 res://scripts/appraisal_prod.gd
+res://scenes/menus/main_menu.tscn
+res://scenes/ui/ui.tscn

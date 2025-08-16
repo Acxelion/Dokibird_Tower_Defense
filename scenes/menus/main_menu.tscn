@@ -65,7 +65,7 @@ custom_minimum_size = Vector2(1000, 500)
 layout_mode = 2
 theme_override_constants/outline_size = 15
 bbcode_enabled = true
-text = "\"[font_size=100][b][i]DOKIBIRD'S NESTICLE DEFENSE[/i][/b][/font_size]\""
+text = "\"[color=gold][font_size=100][b][i]DOKIBIRD'S NESTICLE DEFENSE[/i][/b][/font_size][/color]\""
 scroll_active = false
 shortcut_keys_enabled = false
 horizontal_alignment = 1

@@ -253,6 +253,7 @@ grow_vertical = 2
 
 [node name="SidePanel" type="PanelContainer" parent="Control"]
 visible = false
+layout_mode = 0
 offset_left = 865.0
 offset_top = 1.0
 offset_right = 1151.0
