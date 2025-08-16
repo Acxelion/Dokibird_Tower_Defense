@@ -94,7 +94,7 @@ func _purchase_turret(event: InputEvent) -> void:
 			get_child(1).queue_free()
 		
 		if not (is_on_path or is_on_turret): # checks if it's a dirt tile or overlapping a turret
-			var path = get_tree().get_root() # gets root of scene
+			var path = get_tree().get_root().get_node("/root/GameManager") # gets root of scene
 			path.add_child(temp_turret) # adds temp_turret to scene tree
 			temp_turret.global_position = event.global_position # assigns its position to where the mouse is
 			

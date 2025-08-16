@@ -9,8 +9,8 @@ extends Node
 var waves: Array[Wave]
 
 @onready var paused: bool = false
-@onready var path_to_wave_quantity: String = "res://assets/wave_csv/map1/waves.csv"
-@onready var path_to_wave_delay: String = "res://assets/wave_csv/map1/delay.csv"
+@onready var path_to_wave_quantity: String = "res://assets/wave_csv/map1/waves.txt"
+@onready var path_to_wave_delay: String = "res://assets/wave_csv/map1/delay.txt"
 
 @onready var wave_timer := $WaveTimer
 var num_spawners_finished: int = 0
