@@ -59,6 +59,7 @@ sprite_frames = SubResource("SpriteFrames_yaxid")
 animation = &"idle"
 
 [node name="CollisionArea" type="Area2D" parent="." groups=["collision_area"]]
+process_mode = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
 shape = SubResource("CircleShape2D_d0k0n")

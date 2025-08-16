@@ -65,6 +65,7 @@ animation = &"idle"
 frame_progress = 0.309087
 
 [node name="CollisionArea" type="Area2D" parent="." groups=["collision_area"]]
+process_mode = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
 rotation = 1.5708
