@@ -19,3 +19,7 @@ res://scripts/main_menu.gd
 res://scripts/egg_prod.gd
 res://assets/resources/dokibird_grunt.tres
 res://scripts/Data.gd
+res://scenes/dragoons/dokiumProd/appraisalProd/appraisal_prod.tscn
+res://scripts/indoctrination_prod.gd
+res://scenes/dragoons/dokiumProd/indoctrinationProd/indoctrination_prod.tscn
+res://scripts/appraisal_prod.gd

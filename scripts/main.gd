@@ -44,7 +44,7 @@ class Wave:
 			if delay[i] == 0:
 				spawners[i].start_spawner()
 			delay[i] = delay[i] - 1
-		print("WaveTimer one tick %s" % [str(delay[0]),])
+		# print("WaveTimer one tick %s" % [str(delay[0]),])
 
 # given a pair of paths to CSV files, populates waves with a list of Wave objects
 func instantiate_waves(quantity_path: String, delay_path: String, spawners: Array):
@@ -146,7 +146,7 @@ func game_over():
 
 # called when a wave is completed
 func wave_finished():
-	print("WAVE FINISHED")
+	# print("WAVE FINISHED")
 	
 	# setup next wave
 	wave_timer.disconnect("timeout", waves[Globals.current_wave]._update_delays)
@@ -191,5 +191,5 @@ func _on_enemy_attacks(damage_taken: int):
 		wave_finished()
 
 func _on_spawner_finished():
-	print("A SPAWNER FINISHED")
+	#print("A SPAWNER FINISHED")
 	pass

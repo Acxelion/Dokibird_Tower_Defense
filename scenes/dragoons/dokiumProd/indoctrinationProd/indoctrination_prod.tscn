@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://db5kmrjgtuxi0"]
+
+[ext_resource type="Script" uid="uid://bki4eogg0i0jn" path="res://scripts/indoctrination_prod.gd" id="1_1g2qu"]
+[ext_resource type="PackedScene" uid="uid://nds5na8rrffn" path="res://scenes/dragoons/dokiumProd/eggProd/floating_text.tscn" id="2_xe3ry"]
+[ext_resource type="Texture2D" uid="uid://bj3f73tots0n4" path="res://assets/dragoons/drgn-indo/01.png" id="3_ugytf"]
+[ext_resource type="Texture2D" uid="uid://s70cqwo48dv4" path="res://assets/dragoons/drgn-indo/02.png" id="4_awmfc"]
+[ext_resource type="Texture2D" uid="uid://bypqxvryiaibv" path="res://assets/dragoons/drgn-indo/03.png" id="5_fhnoq"]
+[ext_resource type="Texture2D" uid="uid://cx0rdgd2ws1nr" path="res://assets/dragoons/drgn-indo/04.png" id="6_23mtv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o45xn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ugytf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_awmfc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fhnoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_23mtv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stbit"]
+size = Vector2(67, 75)
+
+[node name="IndoctrinationProd" type="Node2D" groups=["turret"]]
+script = ExtResource("1_1g2qu")
+floating_text_scene = ExtResource("2_xe3ry")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_o45xn")
+frame_progress = 0.745874
+
+[node name="CollisionArea" type="Area2D" parent="." groups=["collision_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+position = Vector2(1.5, -0.5)
+shape = SubResource("RectangleShape2D_stbit")
+
+[node name="Timer" type="Timer" parent="."]

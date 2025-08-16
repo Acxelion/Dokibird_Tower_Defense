@@ -16,7 +16,7 @@ func _on_animation_finished():
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if "Enemy" in body.name:
+	if body.get_parent().is_in_group("enemy"):
 		body.get_damage(damage)
 
 # called by GameManager when InputEvent.action_pressed("paused") == true

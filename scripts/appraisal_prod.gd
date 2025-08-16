@@ -2,13 +2,13 @@ extends Node2D
 
 # We need to pre-load the FloatingText scene so we can create instances of it.
 # Make sure the path is correct.
-@export var floating_text_scene: PackedScene = preload("res://scenes/dragoons/dokiumProd/eggProd/floating_text.tscn")
+@export var floating_text_scene: PackedScene = preload("res://scenes/dragoons/dokiumProd/appraisalProd/floating_text.tscn")
 
 # Signal to tell the main game scene to update the currency.
 signal add_currency(amount)
 
 # corresponding string key in Data.TURRETS
-const KEY: String = "egg_prod"
+const KEY: String = "appraisal_prod"
 
 # money earned per timer.timeout
 @onready var reward: int = Data.TURRETS[KEY].reward

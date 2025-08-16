@@ -12,22 +12,24 @@ func _ready():
 		animated_sprite.play("default")
 
 func _physics_process(delta):
-	# Before using target_node, check if it's still valid.
-	# If the target is gone, the projectile should just disappear.
-	if not is_instance_valid(target_node):
-		queue_free()
-		return
-	
-	var target_position = target_node.global_position
-	
-	velocity = global_position.direction_to(target_position) * speed
-	
-	look_at(target_position)
-	
-	move_and_slide()
+	# skip body/movement of tomato if game is paused
+	if not Globals.paused_status:
+		# Before using target_node, check if it's still valid.
+		# If the target is gone, the projectile should just disappear.
+		if not is_instance_valid(target_node):
+			queue_free()
+			return
+		
+		var target_position = target_node.global_position
+		
+		velocity = global_position.direction_to(target_position) * speed
+		
+		look_at(target_position)
+		
+		move_and_slide()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if "Enemy" in body.name:
+	if body.is_in_group("enemy"):
 		
 		# Instantiate the new scene.
 		var impact_effect = tomatoImpact.instantiate()
@@ -50,4 +52,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 # called by GameManager when InputEvent.action_pressed("paused") == true
 func pause():
-	self.process_mode = Node.PROCESS_MODE_ALWAYS if self.process_mode==Node.PROCESS_MODE_DISABLED else Node.PROCESS_MODE_DISABLED
+	pass
+	#self.process_mode = Node.PROCESS_MODE_ALWAYS if self.process_mode==Node.PROCESS_MODE_DISABLED else Node.PROCESS_MODE_DISABLED

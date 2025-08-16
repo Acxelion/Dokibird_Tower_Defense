@@ -1,8 +1,11 @@
 class_name AirforceDragoon
 extends Node2D
 
+# key to corresponding Turret_Data object
+const KEY: String = "airforce_goon"
+
 @export var speed = 200.0
-@export var damage = 1
+@export var damage: int =  Data.TURRETS[KEY].damage
 @export var left_bound = 0.0 # The X-coordinate where the plane turns around on the left
 @export var right_bound = 1100.0 # The X-coordinate where the plane turns around on the right
 @export var fly_y = 100.0 # The constant Y-coordinate for the plane to fly at
@@ -14,6 +17,7 @@ extends Node2D
 var direction = 1 # 1 for right, -1 for left
 var is_flying = true
 var explosion_scene = preload("res://scenes/dragoons/regularDragoon/airforceDragoon/explosion.tscn")
+
 
 var path_tiles = [
 	Vector2i(1, 4), 

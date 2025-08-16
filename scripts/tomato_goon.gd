@@ -1,7 +1,10 @@
 extends Node2D
 
+# key to corresponding Turret_Data object
+const KEY: String = "tomato_goon"
+
 var tomato = preload("res://scenes/dragoons/regularDragoon/tomatoGoon/tomato.tscn")
-var tomatoDamage = 1
+var tomatoDamage: int = Data.TURRETS[KEY].damage
 var pathName
 var currTargets = []
 var curr
@@ -29,7 +32,7 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 		currTargets = get_node("DetectionArea").get_overlapping_bodies()
 		
 		for i in currTargets:
-			if "Enemy" in i.name:
+			if i.is_in_group("enemy"):
 				tempArray.append(i)
 				
 		var currTarget = null

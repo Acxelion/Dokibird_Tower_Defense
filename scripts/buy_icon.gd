@@ -100,7 +100,8 @@ func _purchase_turret(event: InputEvent) -> void:
 			#print(temp_turret.name)
 			#if temp_turret is AirforceDragoon:
 				#temp_turret.is_flying = true
-			temp_turret.pause()
+			if Globals.paused_status == true:
+				temp_turret.pause()
 			temp_turret.global_position = event.global_position # assigns its position to where the mouse is
 			
 			turret_purchased.emit(assigned_turret_data.cost) # emit signal to inform successful turret purchase

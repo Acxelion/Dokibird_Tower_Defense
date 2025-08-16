@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbi6xmawg3yug"]
+
+[ext_resource type="Script" uid="uid://cdf2junaxt5tx" path="res://scripts/appraisal_prod.gd" id="1_10x17"]
+[ext_resource type="Texture2D" uid="uid://blteskn6joc42" path="res://assets/dragoons/doki-appr/01.png" id="2_20sje"]
+[ext_resource type="Texture2D" uid="uid://bcl05ew0kvexv" path="res://assets/dragoons/doki-appr/02.png" id="3_hb8g0"]
+[ext_resource type="Texture2D" uid="uid://bk7527vons36p" path="res://assets/dragoons/doki-appr/03.png" id="4_hg7qr"]
+[ext_resource type="Texture2D" uid="uid://hoeyhgonb0ih" path="res://assets/dragoons/doki-appr/04.png" id="5_gx53s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o45xn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_20sje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hb8g0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hg7qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gx53s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stbit"]
+size = Vector2(67, 75)
+
+[node name="AppraisalProd" type="Node2D" groups=["turret"]]
+script = ExtResource("1_10x17")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_o45xn")
+frame_progress = 0.644484
+
+[node name="CollisionArea" type="Area2D" parent="." groups=["collision_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+position = Vector2(1.5, -0.5)
+shape = SubResource("RectangleShape2D_stbit")
+
+[node name="Timer" type="Timer" parent="."]
