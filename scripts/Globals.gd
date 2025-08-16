@@ -4,6 +4,8 @@
 
 extends Node
 
+var paused_status: bool = false
+
 @export var maximum_wave: int = 10
 @onready var current_wave: int = 0
 
@@ -20,3 +22,4 @@ func reset() -> void:
 	wallet = starting_wealth
 	player_health = max_player_health
 	game_finished = false
+	paused_status = false

@@ -56,9 +56,7 @@ script = ExtResource("1_bjp61")
 rotation = -1.5708
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_yaxid")
-animation = &"shoot"
-frame = 4
-frame_progress = 0.423307
+animation = &"idle"
 
 [node name="CollisionArea" type="Area2D" parent="." groups=["collision_area"]]
 

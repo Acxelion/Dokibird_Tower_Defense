@@ -47,3 +47,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			anim_player.play("fade")
 		
 		queue_free()
+
+# called by GameManager when InputEvent.action_pressed("paused") == true
+func pause():
+	self.process_mode = Node.PROCESS_MODE_ALWAYS if self.process_mode==Node.PROCESS_MODE_DISABLED else Node.PROCESS_MODE_DISABLED

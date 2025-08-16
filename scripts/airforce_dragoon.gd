@@ -8,11 +8,11 @@ extends Node2D
 @export var fly_y = 100.0 # The constant Y-coordinate for the plane to fly at
 
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var map = get_tree().get_root().get_node("GameManager/Map1/TileMap")
+@onready var map #= get_tree().get_root().get_node("GameManager/Map1/TileMap")
 @onready var timer = $Timer
 
 var direction = 1 # 1 for right, -1 for left
-var is_flying = false
+var is_flying = true
 var explosion_scene = preload("res://scenes/dragoons/regularDragoon/airforceDragoon/explosion.tscn")
 
 var path_tiles = [
@@ -24,7 +24,7 @@ var path_tiles = [
 func _ready():
 	global_position = Vector2(left_bound, fly_y)
 	animated_sprite.play("idle")
-	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
+	# timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 
 func _physics_process(delta):
 	if is_flying:
@@ -50,3 +50,10 @@ func _on_timer_timeout() -> void:
 		explosion.damage = damage
 		explosion.global_position = global_position
 		get_parent().add_child(explosion)
+	
+# called by GameManager when InputEvent.action_pressed("paused") == true
+func pause():
+	timer.paused = not timer.paused
+	is_flying = not is_flying
+	animated_sprite.process_mode = Node.PROCESS_MODE_ALWAYS if animated_sprite.process_mode==Node.PROCESS_MODE_DISABLED else Node.PROCESS_MODE_DISABLED
+	

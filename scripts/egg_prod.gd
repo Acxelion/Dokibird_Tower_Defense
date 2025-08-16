@@ -48,6 +48,7 @@ func _on_timer_timeout() -> void:
 			# Play the animation we created.
 			anim_player.play("float_and_fade")
 			
-# called by game maanger when pause occurs
+# called by GameManager when InputEvent.action_pressed("paused") == true
 func pause():
-	pass
+	#$AnimatedSprite2D.process_mode =  Node.PROCESS_MODE_ALWAYS if $AnimatedSprite2D.process_mode==Node.PROCESS_MODE_DISABLED else Node.PROCESS_MODE_DISABLED
+	self.process_mode = Node.PROCESS_MODE_ALWAYS if self.process_mode==Node.PROCESS_MODE_DISABLED else Node.PROCESS_MODE_DISABLED

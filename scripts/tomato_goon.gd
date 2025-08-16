@@ -71,3 +71,9 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 	currTargets = get_node("DetectionArea").get_overlapping_bodies()
 	if currTargets.is_empty():
 		$AnimatedSprite2D.play("idle")
+
+# called by GameManager when InputEvent.action_pressed("paused") == true
+func pause():
+	$FireTimer.paused = not $FireTimer.paused
+	$AnimatedSprite2D.process_mode = Node.PROCESS_MODE_ALWAYS if $AnimatedSprite2D.process_mode==Node.PROCESS_MODE_DISABLED else Node.PROCESS_MODE_DISABLED
+	

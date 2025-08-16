@@ -31,7 +31,7 @@ height = 32.0
 radius = 24.0
 height = 48.0
 
-[node name="Tomato" type="CharacterBody2D"]
+[node name="Tomato" type="CharacterBody2D" groups=["projectiles"]]
 script = ExtResource("1_y62sn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

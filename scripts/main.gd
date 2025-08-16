@@ -8,7 +8,7 @@ extends Node
 @onready var enemy_routes: Array[Curve2D] = [preload("res://assets/resources/map1_route.tres"), ]
 var waves: Array[Wave]
 
-@onready var paused: bool = false
+# @onready var Globals.paused_status: bool = false
 @onready var path_to_wave_quantity: String = "res://assets/wave_csv/map1/waves.txt"
 @onready var path_to_wave_delay: String = "res://assets/wave_csv/map1/delay.txt"
 
@@ -76,7 +76,7 @@ func _ready():
 	for idx in range(len(spawner_filepaths)):
 		spawners.append(load(spawner_filepaths[idx]).instantiate()) 	# instantiate spawner
 		spawners[-1].travel_path = enemy_routes[idx]					# assign path spawned enemies will take
-		# spawners[-1].pause()											# make sure the spawner is paused
+		# spawners[-1].pause()											# make sure the spawner is Globals.paused_status
 		
 		# connecting signals
 		spawners[-1].connect_to_spawn_signal(_on_enemy_spawned)	# call this function whenever enemy spawned
@@ -107,12 +107,12 @@ func _ready():
 	#wave_timer.start()
 	
 	# pause game
-	ui.play_button.set_pressed(paused)
+	ui.play_button.set_pressed(Globals.paused_status)
 
 func _input(event):
 	if (not Globals.game_finished) and event.is_action_pressed("Pause"):
 		# pause_game()
-		ui.play_button.set_pressed(paused) # can call this over pause_game() b/c signal wil call pause_game()
+		ui.play_button.set_pressed(Globals.paused_status) # can call this over pause_game() b/c signal wil call pause_game()
 	
 	pass
 
@@ -122,12 +122,13 @@ func on_turret_purchase(cost: int):
 
 func pause_game():
 	# update pause variable
-	paused = not paused
+	Globals.paused_status = not Globals.paused_status
 	
 	# call pause function of every relevant element 
 	get_tree().call_group("enemy","pause")
 	get_tree().call_group("turret","pause")
-	get_tree().call_group("wave_timers","set_paused", paused)
+	get_tree().call_group("projectiles","pause")
+	get_tree().call_group("wave_timers","set_paused", Globals.paused_status)
 	
 func game_win():
 	# print("GAME VICTORY")
@@ -139,7 +140,7 @@ func game_over():
 	# print("GAME OVER")
 	ui.reveal_game_state_panel("[font_size=75][b][i]GAME OVER[/i][/b][/font_size]")
 	
-	ui.play_button.set_pressed(paused) # can call this over pause_game() b/c signal wil call pause_game()
+	ui.play_button.set_pressed(Globals.paused_status) # can call this over pause_game() b/c signal wil call pause_game()
 	
 	Globals.game_finished = true
 
@@ -158,7 +159,7 @@ func wave_finished():
 		waves[Globals.current_wave].prepare_wave()
 		
 		# pause game
-		ui.play_button.set_pressed(paused)
+		ui.play_button.set_pressed(Globals.paused_status)
 
 func _on_enemy_spawned(enemy):
 	pass

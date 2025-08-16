@@ -51,7 +51,8 @@ animations = [{
 radius = 60.0
 height = 146.0
 
-[node name="AirforceDragoon" type="Node2D"]
+[node name="AirforceDragoon" type="Node2D" groups=["turret"]]
+z_index = -1
 script = ExtResource("1_8puiv")
 metadata/_edit_group_ = true
 
@@ -63,7 +64,7 @@ sprite_frames = SubResource("SpriteFrames_i4g7k")
 animation = &"idle"
 frame_progress = 0.309087
 
-[node name="CollisionArea" type="Area2D" parent="."]
+[node name="CollisionArea" type="Area2D" parent="." groups=["collision_area"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
 rotation = 1.5708

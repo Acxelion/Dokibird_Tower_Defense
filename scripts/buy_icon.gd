@@ -73,6 +73,7 @@ func _purchase_turret(event: InputEvent) -> void:
 		# checks if colliding with any other turrets
 		get_child(1).process_mode = Node.PROCESS_MODE_ALWAYS
 		var found_overlaps: Array[Area2D] = get_child(1).get_node("CollisionArea").get_overlapping_areas() # find all overlapping Area2Ds
+		get_child(1).process_mode = Node.PROCESS_MODE_DISABLED
 		
 		# define dictionary to collect the unique parents of all found_overlaps
 		#var unique_parents: Dictionary = {}
@@ -96,9 +97,10 @@ func _purchase_turret(event: InputEvent) -> void:
 		if not (is_on_path or is_on_turret): # checks if it's a dirt tile or overlapping a turret
 			var path = get_tree().get_root().get_node("/root/GameManager") # gets root of scene
 			path.add_child(temp_turret) # adds temp_turret to scene tree
-			print(temp_turret.name)
-			if temp_turret is AirforceDragoon:
-				temp_turret.is_flying = true
+			#print(temp_turret.name)
+			#if temp_turret is AirforceDragoon:
+				#temp_turret.is_flying = true
+			temp_turret.pause()
 			temp_turret.global_position = event.global_position # assigns its position to where the mouse is
 			
 			turret_purchased.emit(assigned_turret_data.cost) # emit signal to inform successful turret purchase
