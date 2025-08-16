@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var animated_sprite = $AnimatedSprite2D
-var damage = 1
+var damage
 
 
 func _ready() -> void:

@@ -2,6 +2,7 @@ class_name AirforceDragoon
 extends Node2D
 
 @export var speed = 200.0
+@export var damage = 1
 @export var left_bound = 0.0 # The X-coordinate where the plane turns around on the left
 @export var right_bound = 1100.0 # The X-coordinate where the plane turns around on the right
 @export var fly_y = 100.0 # The constant Y-coordinate for the plane to fly at
@@ -46,5 +47,6 @@ func _on_timer_timeout() -> void:
 
 	if is_on_path:
 		var explosion = explosion_scene.instantiate()
+		explosion.damage = damage
 		explosion.global_position = global_position
 		get_parent().add_child(explosion)
