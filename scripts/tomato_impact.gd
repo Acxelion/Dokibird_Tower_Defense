@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var animated_sprite = $AnimatedSprite2D
+@onready var animated_sprite = $Sprite2D
 
 func _ready():
 	# Connect a signal to know when the animation has finished.

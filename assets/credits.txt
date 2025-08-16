@@ -3,3 +3,4 @@
 - Some artwork licensed from Kenney Game Assets
 - BGM: 陣幕 by のる(https://dova-s.jp/bgm/play21957.html)
 - BGM from DOVA-SYNDROME
+- Death SFX from Soniss.com GDC 2016

@@ -12,3 +12,11 @@ extends Node
 
 @export var max_player_health: int = 8
 @onready var player_health: int = max_player_health
+
+@onready var game_finished: bool = false
+
+func reset() -> void:
+	current_wave = 0
+	wallet = starting_wealth
+	player_health = max_player_health
+	game_finished = false

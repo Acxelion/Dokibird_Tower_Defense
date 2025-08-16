@@ -20,12 +20,15 @@ config/icon="res://icon.svg"
 Globals="*res://scripts/Globals.gd"
 Data="*res://scripts/Data.gd"
 SceneManager="*res://scenes/ui/SceneManager.tscn"
+SfxManager="*res://scripts/SfxManager.gd"
 
 [global_group]
 
 enemy="groups for enemies/nesticles"
 turret="group for turrets/dragoons"
 wave_timers="timers for each wave"
+collision_area="group for collision areas of turrets"
+projectiles="group for projectiles"
 
 [input]
 

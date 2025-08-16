@@ -9,8 +9,8 @@ extends Node
 var waves: Array[Wave]
 
 @onready var paused: bool = false
-@onready var path_to_wave_quantity: String = "res://assets/wave_csv/map1/waves.csv"
-@onready var path_to_wave_delay: String = "res://assets/wave_csv/map1/delay.csv"
+@onready var path_to_wave_quantity: String = "res://assets/wave_csv/map1/waves.txt"
+@onready var path_to_wave_delay: String = "res://assets/wave_csv/map1/delay.txt"
 
 @onready var wave_timer := $WaveTimer
 var num_spawners_finished: int = 0
@@ -110,7 +110,7 @@ func _ready():
 	ui.play_button.set_pressed(paused)
 
 func _input(event):
-	if event.is_action_pressed("Pause"):
+	if (not Globals.game_finished) and event.is_action_pressed("Pause"):
 		# pause_game()
 		ui.play_button.set_pressed(paused) # can call this over pause_game() b/c signal wil call pause_game()
 	
@@ -130,10 +130,18 @@ func pause_game():
 	get_tree().call_group("wave_timers","set_paused", paused)
 	
 func game_win():
-	print("GAME VICTORY")
+	# print("GAME VICTORY")
+	ui.reveal_game_state_panel("[font_size=75][b][i]GAME VICTORY[/i][/b][/font_size]")
+	
+	Globals.game_finished = true
 	
 func game_over():
-	print("GAME OVER")
+	# print("GAME OVER")
+	ui.reveal_game_state_panel("[font_size=75][b][i]GAME OVER[/i][/b][/font_size]")
+	
+	ui.play_button.set_pressed(paused) # can call this over pause_game() b/c signal wil call pause_game()
+	
+	Globals.game_finished = true
 
 # called when a wave is completed
 func wave_finished():

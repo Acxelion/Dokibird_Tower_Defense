@@ -75,11 +75,12 @@ func _purchase_turret(event: InputEvent) -> void:
 		var found_overlaps: Array[Area2D] = get_child(1).get_node("CollisionArea").get_overlapping_areas() # find all overlapping Area2Ds
 		
 		# define dictionary to collect the unique parents of all found_overlaps
-		var unique_parents: Dictionary = {}
-		for ele in found_overlaps:
-			if ele.get_parent() != get_child(1):	# prevents counting of itself
-				unique_parents.get_or_add(ele.get_parent())
-		is_on_turret = unique_parents.size() != 0
+		#var unique_parents: Dictionary = {}
+		#for ele in found_overlaps:
+			#if ele.get_parent() != get_child(1):	# prevents counting of itself
+				#unique_parents.get_or_add(ele.get_parent())
+		var valid_overlaps: int = found_overlaps.reduce(func (accum, ele): return accum + (1 if ele.is_in_group("collision_area") else 0), 0)
+		is_on_turret = ( valid_overlaps != 0 )
 		
 		if (is_on_path or is_on_turret): # checks if it's a dirt tile or is overlapping a turret
 			get_child(1).set("modulate", Color("ff5465e6")) # make red
@@ -93,7 +94,7 @@ func _purchase_turret(event: InputEvent) -> void:
 			get_child(1).queue_free()
 		
 		if not (is_on_path or is_on_turret): # checks if it's a dirt tile or overlapping a turret
-			var path = get_tree().get_root() # gets root of scene
+			var path = get_tree().get_root().get_node("/root/GameManager") # gets root of scene
 			path.add_child(temp_turret) # adds temp_turret to scene tree
 			print(temp_turret.name)
 			if temp_turret is AirforceDragoon:

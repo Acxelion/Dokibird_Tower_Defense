@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cokmyqtumwtrm"]
+[gd_scene load_steps=4 format=3 uid="uid://cokmyqtumwtrm"]
 
 [ext_resource type="PackedScene" uid="uid://day3ne6tjexcj" path="res://scenes/ui/ui.tscn" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://c6numreqhva5g" path="res://scripts/main.gd" id="1_iuonh"]
 [ext_resource type="AudioStream" uid="uid://7uiena04164u" path="res://assets/resources/bgm_test.tres" id="3_k2fmo"]
-[ext_resource type="PackedScene" uid="uid://ugfdfx4joy4g" path="res://scenes/dragoons/regularDragoon/airforceDragoon/airforce_dragoon.tscn" id="4_l3cfh"]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_iuonh")
@@ -15,13 +14,7 @@ z_index = 1000
 editor_description = "https://dova-s.jp/bgm/play21957.html
 licensing found on  this page"
 stream = ExtResource("3_k2fmo")
-volume_db = -80.0
+volume_db = -5.0
 
 [node name="WaveTimer" type="Timer" parent="." groups=["wave_timers"]]
 autostart = true
-
-[node name="Node2D" type="Node2D" parent="."]
-visible = false
-
-[node name="AirforceDragoon" parent="Node2D" instance=ExtResource("4_l3cfh")]
-position = Vector2(112, 160)
