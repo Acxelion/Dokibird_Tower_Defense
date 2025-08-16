@@ -1,31 +1,14 @@
-<<<<<<< HEAD
+ColorRect
+MarginContainer
+Button
+HBoxContainer
+PanelContainer
+Control
+Container
 RichTextLabel
+Panel
 CenterContainer
 TextureRect
-Button
-MarginContainer
 Label
 AnimationPlayer
-PanelContainer
-ColorRect
 CanvasLayer
-=======
-Node2D
-TextureButton
->>>>>>> 81919ce3055dc7fc87a4141ebea6238171e1b426
-VBoxContainer
-TextureButton
-HBoxContainer
-Timer
-<<<<<<< HEAD
-=======
-AudioStreamPlayer
-PathFollow2D
-Path2D
-AnimationPlayer
-CharacterBody2D
-CollisionShape2D
-StaticBody2D
-CollisionPolygon2D
-Sprite2D
->>>>>>> 81919ce3055dc7fc87a4141ebea6238171e1b426

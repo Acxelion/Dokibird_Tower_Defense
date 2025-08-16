@@ -9,6 +9,8 @@ func _ready():
 
 func _on_start_button_pressed() -> void:
 	SceneManager.change_scene("res://scenes/main/main.tscn")
+	
+	Globals.reset()
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()

@@ -2,12 +2,16 @@ extends Node
 
 @onready var anim := $AnimationPlayer # assigning AnimationPlayer node to a variable
 @onready var play_button := $PlayButton
-@onready var turrets_container := $PanelContainer/VSplitContainer/ScrollContainer/TurretsContainer
-@onready var health_label := $PanelContainer/VSplitContainer/StatsContainer/HealthLabel
-@onready var currency_label := $PanelContainer/VSplitContainer/StatsContainer/CurrencyLabel
-@onready var wave_label := $PanelContainer/VSplitContainer/StatsContainer/WaveLabel
+@onready var turrets_container := $Control/SidePanel/VSplitContainer/ScrollContainer/TurretsContainer
+@onready var health_label := $Control/SidePanel/VSplitContainer/StatsContainer/HealthLabel
+@onready var currency_label := $Control/SidePanel/VSplitContainer/StatsContainer/CurrencyLabel
+@onready var wave_label := $Control/SidePanel/VSplitContainer/StatsContainer/WaveLabel
+@onready var game_state_panel := $GameStatePanel
+@onready var game_state_label := $GameStatePanel/MarginContainer/GameStateLabel
 
 @onready var buy_icon_path = "res://scenes/ui/buy_icon.tscn"
+
+@onready var panel_revealed: bool = false
 
 var toggle_button_response: Callable
 
@@ -54,6 +58,26 @@ func update_health_bar(new_hp: int, max_hp: int):
 func update_currency_label(new_value: int):
 	currency_label.text = "Dokium: " + str(new_value)
 
+# flips game_state_panel's state
+# assigns text to game_state_label
+# returns panel's current state(has_slide_in or has_slide_out)
+func reveal_game_state_panel(text: String) -> bool:
+	if panel_revealed:
+		anim.play_backwards("slide_in_game_state_panel")
+	else:
+		anim.play("slide_in_game_state_panel")
+		
+	game_state_label.text = text
+		
+	return panel_revealed
+
 # updates wave_label to "{wave_num} / {maximum_wave}"
 func update_wave_label(wave_num: int, maximum_wave: int):
 	wave_label.text = "Wave: " + str(wave_num) + " / " + str(maximum_wave)
+
+func _on_restart_button_pressed() -> void:
+	SceneManager.change_scene("res://scenes/menus/main_menu.tscn")
+	Globals.game_finished = false
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()

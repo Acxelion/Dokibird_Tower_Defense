@@ -9,3 +9,9 @@ res://scenes/enemies/enemy.tscn
 res://scripts/buy_icon.gd
 res://scenes/dragoons/regularDragoon/tomatoGoon/tomato_impact.gd
 res://scripts/main.gd
+res://scenes/ui/ui.tscn
+res://scenes/ui/SceneManager.tscn
+res://scripts/ui.gd
+res://scripts/Globals.gd
+res://scripts/scene_manager.gd
+res://scripts/main_menu.gd

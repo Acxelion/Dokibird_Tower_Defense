@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://day3ne6tjexcj"]
+[gd_scene load_steps=10 format=3 uid="uid://day3ne6tjexcj"]
 
 [ext_resource type="Script" uid="uid://dt822xqvf6ptj" path="res://scripts/ui.gd" id="1_aac20"]
 [ext_resource type="Texture2D" uid="uid://bbckv40hpuv3u" path="res://assets/hamburger.png" id="3_0dwhk"]
@@ -10,7 +10,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PanelContainer:visible")
+tracks/0/path = NodePath("Control/SidePanel:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -22,7 +22,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PanelContainer:position")
+tracks/1/path = NodePath("Control/SidePanel:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -34,7 +34,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PanelContainer:modulate")
+tracks/2/path = NodePath("Control/SidePanel:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -43,13 +43,61 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GameStatePanel:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [648.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MenuButton:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PlayButton:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_02nsg"]
 resource_name = "close_menu"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PanelContainer:visible")
+tracks/0/path = NodePath("Control/SidePanel:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -61,7 +109,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PanelContainer:position")
+tracks/1/path = NodePath("Control/SidePanel:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -73,7 +121,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PanelContainer:modulate")
+tracks/2/path = NodePath("Control/SidePanel:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -88,7 +136,7 @@ resource_name = "open_menu"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PanelContainer:visible")
+tracks/0/path = NodePath("Control/SidePanel:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -100,7 +148,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PanelContainer:position")
+tracks/1/path = NodePath("Control/SidePanel:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -112,7 +160,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PanelContainer:modulate")
+tracks/2/path = NodePath("Control/SidePanel:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -122,56 +170,128 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_g5kmx"]
+resource_name = "slide_in_game_state_panel"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameStatePanel:position:y")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [648.0, 100.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.117647)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuButton:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayButton:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vspwy"]
 _data = {
 &"RESET": SubResource("Animation_vspwy"),
 &"close_menu": SubResource("Animation_02nsg"),
-&"open_menu": SubResource("Animation_7n028")
+&"open_menu": SubResource("Animation_7n028"),
+&"slide_in_game_state_panel": SubResource("Animation_g5kmx")
 }
 
-[node name="UI" type="Node2D"]
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_aac20")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vspwy")
+}
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SidePanel" type="PanelContainer" parent="Control"]
 visible = false
 offset_left = 865.0
 offset_top = 1.0
 offset_right = 1151.0
 offset_bottom = 649.0
 
-[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer"]
+[node name="VSplitContainer" type="VSplitContainer" parent="Control/SidePanel"]
 layout_mode = 2
 
-[node name="StatsContainer" type="VBoxContainer" parent="PanelContainer/VSplitContainer"]
+[node name="StatsContainer" type="VBoxContainer" parent="Control/SidePanel/VSplitContainer"]
 layout_mode = 2
 
-[node name="HealthLabel" type="RichTextLabel" parent="PanelContainer/VSplitContainer/StatsContainer"]
+[node name="HealthLabel" type="RichTextLabel" parent="Control/SidePanel/VSplitContainer/StatsContainer"]
 layout_mode = 2
 text = "DRAGOONS"
 fit_content = true
 
-[node name="CurrencyLabel" type="RichTextLabel" parent="PanelContainer/VSplitContainer/StatsContainer"]
+[node name="CurrencyLabel" type="RichTextLabel" parent="Control/SidePanel/VSplitContainer/StatsContainer"]
 layout_mode = 2
 text = "DOKIUM"
 fit_content = true
 
-[node name="WaveLabel" type="RichTextLabel" parent="PanelContainer/VSplitContainer/StatsContainer"]
+[node name="WaveLabel" type="RichTextLabel" parent="Control/SidePanel/VSplitContainer/StatsContainer"]
 layout_mode = 2
 text = "WAVE:"
 fit_content = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VSplitContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/SidePanel/VSplitContainer"]
 layout_mode = 2
 
-[node name="TurretsContainer" type="VBoxContainer" parent="PanelContainer/VSplitContainer/ScrollContainer"]
+[node name="TurretsContainer" type="VBoxContainer" parent="Control/SidePanel/VSplitContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VSplitContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/SidePanel/VSplitContainer"]
 layout_mode = 2
 
 [node name="MenuButton" type="Button" parent="."]
+layout_mode = 2
 offset_right = 128.0
 offset_bottom = 128.0
 scale = Vector2(0.3, 0.3)
@@ -179,6 +299,7 @@ toggle_mode = true
 icon = ExtResource("3_0dwhk")
 
 [node name="PlayButton" type="TextureButton" parent="."]
+layout_mode = 2
 offset_left = 39.0
 offset_right = 239.0
 offset_bottom = 200.0
@@ -188,10 +309,66 @@ button_pressed = true
 texture_normal = ExtResource("3_g5kmx")
 texture_pressed = ExtResource("4_0dwhk")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_vspwy")
-}
+[node name="GameStatePanel" type="PanelContainer" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 326.0
+offset_right = -372.0
+offset_bottom = 478.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="GameStatePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="GameStateLabel" type="RichTextLabel" parent="GameStatePanel/MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonPanel" type="PanelContainer" parent="GameStatePanel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="GameStatePanel/ButtonPanel"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameStatePanel/ButtonPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="RestartButton" type="Button" parent="GameStatePanel/ButtonPanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="GameStatePanel/ButtonPanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+text = "Quit"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = -50
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.572988, 0.572988, 0.572988, 1)
 
 [connection signal="toggled" from="MenuButton" to="." method="_on_button_toggled"]
 [connection signal="toggled" from="PlayButton" to="." method="_on_play_button_toggled"]
+[connection signal="pressed" from="GameStatePanel/ButtonPanel/MarginContainer/HBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="GameStatePanel/ButtonPanel/MarginContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
