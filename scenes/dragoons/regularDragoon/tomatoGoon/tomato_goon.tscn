@@ -58,7 +58,7 @@ scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_yaxid")
 animation = &"shoot"
 
-[node name="CollisionArea" type="Area2D" parent="."]
+[node name="CollisionArea" type="Area2D" parent="." groups=["collision_area"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
 shape = SubResource("CircleShape2D_d0k0n")
@@ -74,7 +74,7 @@ shape = SubResource("CircleShape2D_1v605")
 [node name="TomatoContainer" type="Node" parent="."]
 
 [node name="FireTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.05
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

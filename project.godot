@@ -26,6 +26,8 @@ SceneManager="*res://scenes/ui/SceneManager.tscn"
 enemy="groups for enemies/nesticles"
 turret="group for turrets/dragoons"
 wave_timers="timers for each wave"
+collision_area="group for collision areas of turrets"
+projectiles="group for projectiles"
 
 [input]
 
