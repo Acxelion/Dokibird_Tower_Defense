@@ -3,7 +3,8 @@ extends Node
 @onready var ui := $UI
 @onready var bgm_player := $BgmPlayer
 
-@onready var spawner_filepaths: Array[String] = ["res://scenes/enemies/spawner.tscn", ]
+@export var enemy_filepaths: Array[String] = ["res://scenes/enemies/base/enemy.tscn", ]
+@onready var spawner_filepath: String = "res://scenes/enemies/base/spawner.tscn"
 @onready var spawners: Array[Node] = []
 @onready var enemy_routes: Array[Curve2D] = [preload("res://assets/resources/map1_route.tres"), ]
 var waves: Array[Wave]
@@ -51,6 +52,7 @@ func instantiate_waves(quantity_path: String, delay_path: String, spawners: Arra
 	# open files
 	var quantity_file = FileAccess.open(quantity_path, FileAccess.READ) # open the quantity file
 	var delay_file = FileAccess.open(delay_path, FileAccess.READ) # open delay file
+	
 
 	# translate each row to an appropriate wave object
 	while not quantity_file.eof_reached():	# can do both files since they should have the same number of rows
@@ -63,19 +65,24 @@ func instantiate_waves(quantity_path: String, delay_path: String, spawners: Arra
 		var d_arr: Array = delay_csv_row.map(func(element): return int(element))
 		
 		waves.append(Wave.new(q_arr, d_arr, spawners))
+		
+	assert(enemy_filepaths.size() == waves[0].quantity.size(), "Number of columns in quantity.txt do not match number of enemy types")
+	assert(enemy_filepaths.size() == waves[0].delay.size(), "Number of columns in delay.txt do not match number of enemy types")
 	
 	quantity_file.close() # close the quantity file
 	delay_file.close() # close the delay file
 		
 func _ready():
+	
 	# instantiate map
 	var map = load("res://scenes/maps/map1.tscn").instantiate()
 	add_child(map)
 	
 	# instantiate spawner(s)
-	for idx in range(len(spawner_filepaths)):
-		spawners.append(load(spawner_filepaths[idx]).instantiate()) 	# instantiate spawner
-		spawners[-1].travel_path = enemy_routes[idx]					# assign path spawned enemies will take
+	for idx in range(len(enemy_filepaths)):
+		spawners.append(load(spawner_filepath).instantiate()) 	# instantiate spawner
+		spawners[-1].travel_path = enemy_routes[0]					# assign path spawned enemies will take
+		spawners[-1].enemy_scene = load(enemy_filepaths[idx])
 		# spawners[-1].pause()											# make sure the spawner is Globals.paused_status
 		
 		# connecting signals

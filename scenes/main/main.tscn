@@ -6,6 +6,7 @@
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_iuonh")
+enemy_filepaths = Array[String](["res://scenes/enemies/base/enemy.tscn", "res://scenes/enemies/angel/enemy.tscn", "res://scenes/enemies/devil/enemy.tscn", "res://scenes/enemies/halloween/enemy.tscn", "res://scenes/enemies/king/enemy.tscn", "res://scenes/enemies/nerd/enemy.tscn", "res://scenes/enemies/strawberry/enemy.tscn"])
 
 [node name="UI" parent="." instance=ExtResource("1_hyk8p")]
 z_index = 1000

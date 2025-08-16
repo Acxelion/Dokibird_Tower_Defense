@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=3 uid="uid://o283xwrph3hp"]
+
+[ext_resource type="Script" uid="uid://dlovgbcawcf1s" path="res://scripts/enemy.gd" id="1_pxl6g"]
+[ext_resource type="Texture2D" uid="uid://dsi1kpicw1sad" path="res://assets/nesticles/strawberry/dead.png" id="2_pxl6g"]
+[ext_resource type="Texture2D" uid="uid://demxfai4q2vnw" path="res://assets/nesticles/strawberry/1.png" id="3_d7irq"]
+[ext_resource type="Texture2D" uid="uid://bcnrqghsbr8rq" path="res://assets/nesticles/strawberry/2.png" id="4_dr7xt"]
+[ext_resource type="Texture2D" uid="uid://dw37ou78bbikb" path="res://assets/nesticles/strawberry/3.png" id="5_6r0yu"]
+[ext_resource type="Texture2D" uid="uid://bii362gppls22" path="res://assets/nesticles/strawberry/4.png" id="6_4g0j2"]
+[ext_resource type="Texture2D" uid="uid://dn2cy5frrfrm8" path="res://assets/test_turret.png" id="7_o3u46"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w4ejq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pxl6g")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_d7irq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dr7xt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6r0yu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4g0j2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6xk8f"]
+radius = 26.0
+
+[sub_resource type="Animation" id="Animation_38ino"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.25, 0.25)]
+}
+
+[sub_resource type="Animation" id="Animation_oflwj"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.46667, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(0.3, 0.3), Vector2(0.25, 0.25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fcftc"]
+_data = {
+&"RESET": SubResource("Animation_38ino"),
+&"idle": SubResource("Animation_oflwj")
+}
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_pxl6g")
+base_speed = 100
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_w4ejq")
+animation = &"dead"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.288312, 0.288312)
+texture = ExtResource("7_o3u46")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6xk8f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+active = false
+libraries = {
+&"": SubResource("AnimationLibrary_fcftc")
+}
+autoplay = "idle"

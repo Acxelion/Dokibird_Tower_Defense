@@ -36,7 +36,7 @@ class Turret_Data:
 	"egg_prod" = Turret_Data.new("Egg Producer", 1, "Dokium is eggs", 
 		load("res://assets/dragoons/egg-prod/01.png"), "res://scenes/dragoons/dokiumProd/eggProd/egg_prod.tscn",
 		0, 1),
-	"indoc_prod" = Turret_Data.new("Dragoon Indoctrination", 1, "Doki streams are good for the soul", 
+	"indoc_prod" = Turret_Data.new("Dokium Injection", 1, "Doki streams are good for the soul", 
 		load("res://assets/dragoons/drgn-indo/01.png"), "res://scenes/dragoons/dokiumProd/indoctrinationProd/indoctrination_prod.tscn",
 		0, 2),
 	"appraisal_prod" = Turret_Data.new("Appraise Dokibird", 1, "Appraise Doki for her streamer build", 
@@ -44,6 +44,6 @@ class Turret_Data:
 		0, 3),
 	"tomato_goon" = Turret_Data.new("Tomatogoon", 1, "Tomato Potato", 
 		load("res://assets/dragoons/tomato-goon/idle1.png"), "res://scenes/dragoons/regularDragoon/tomatoGoon/tomato_goon.tscn"),
-	"airforce_goon" = Turret_Data.new("Tomatogoon", 1, "Airforce Dragoon", 
+	"airforce_goon" = Turret_Data.new("Airforce-goon", 1, "Airforce Dragoon", 
 		load("res://assets/dragoons/airforce-dragoons/a1.png"), "res://scenes/dragoons/regularDragoon/airforceDragoon/airforce_dragoon.tscn"),
 }

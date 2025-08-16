@@ -60,6 +60,7 @@ func _on_spawn_timer_timeout() -> void:
 		
 		var follow_route = PathFollow2D.new()		# instantiate a PathFollow2D
 		follow_route.loop = false
+		follow_route.rotates = false
 		
 		# assign values to the spawned enemy unit
 		var enemy = enemy_scene.instantiate()		# instantiate an enemy

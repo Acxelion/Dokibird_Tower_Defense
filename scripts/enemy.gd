@@ -8,6 +8,8 @@ extends CharacterBody2D
 @onready var parent = get_parent()
 @onready var anim = $AnimationPlayer
 @onready var death_sounds: Array[AudioStream] = [preload("res://assets/resources/grunt_1.tres"),]
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collider: CollisionShape2D = $CollisionShape2D
 
 var speed: int = base_speed
 var health: int = base_health
@@ -18,9 +20,13 @@ signal successful_enemy_attack(damage: int)				# indicates enemy reached the end
 signal enemy_destroyed(money_earned: int)				# indicates this enemy was destroyed/HP reached zero
 
 var paused: bool = false
+var has_died: bool = false
+
+func _ready():
+	sprite.play("default")
 
 func _process(delta):
-	if not paused:
+	if (not paused) and (not has_died):
 		parent.progress = (parent.progress + speed * delta)
 		if parent.progress_ratio >= 1.0: # if it finished the path
 			finished_route()
@@ -42,27 +48,41 @@ func get_damage(damage_taken: int) -> bool:
 	# update HP
 	health -= damage_taken
 	
-	if health <= 0:
+	if (not has_died) and health <= 0:
+		# update attribute
+		has_died = true
+		
 		# emit signal for game manager that enemy was destroyed
 		enemy_destroyed.emit(value)
 		
+		# remove from group so it won't keep being targeted
+		remove_from_group("enemy")
+		
 		# play death track
 		SfxManager.play_sfx(death_sounds.pick_random())
+		
+		# play death animation
+		sprite.play("dead")
+		
+		# wait for animation to end
+		await sprite.animation_looped
 		
 		# remove this unit and its forefathers
 		parent.get_parent().queue_free()
 		
 		# return survival status
-		return true
+		return false
 	else:
 		
 		# return survival status
-		return false
+		return true
 
 # called whenever player inputs a pause command
 func pause():
 	paused = not paused
 	if paused:
 		anim.pause()
+		sprite.pause()
 	else:
 		anim.play()
+		sprite.play()

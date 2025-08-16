@@ -78,7 +78,7 @@ func _purchase_turret(event: InputEvent) -> void:
 		is_on_turret = ( valid_overlaps != 0 )
 		
 		if (is_on_path or is_on_turret): # checks if it's a dirt tile or is overlapping a turret
-			get_child(1).set("modulate", Color("ff5465e6")) # make red
+			get_child(1).set("modulate", Color("ffffff48")) # make red
 		else:
 			get_child(1).set("modulate", Color("ffffff")) # restore
 		
