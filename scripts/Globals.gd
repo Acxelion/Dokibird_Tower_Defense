@@ -17,6 +17,8 @@ var paused_status: bool = false
 
 @onready var game_finished: bool = false
 
+@onready var difficulty: float = 0.3
+
 func reset() -> void:
 	current_wave = 0
 	wallet = starting_wealth

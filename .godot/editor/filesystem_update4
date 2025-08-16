@@ -16,3 +16,6 @@ res://scenes/enemies/strawberry/enemy.tscn
 res://assets/wave_csv/map1/waves.txt
 res://assets/wave_csv/map1/delay.txt
 res://assets/credits.txt
+res://scenes/dragoons/chonkyDragoon/defaultDragoon/chonky_dragoon.tscn
+res://scenes/dragoons/regularDragoon/tomatoGoon/tomato_goon.tscn
+res://scripts/Globals.gd

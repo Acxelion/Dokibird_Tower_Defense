@@ -1,0 +1,195 @@
+[gd_scene load_steps=22 format=3 uid="uid://bnhyxsqer1dyi"]
+
+[ext_resource type="Texture2D" uid="uid://j33eq3fciu7b" path="res://assets/dragoons/chonky/idel1.png" id="1_05sap"]
+[ext_resource type="Texture2D" uid="uid://clk8o0iu0q3u6" path="res://assets/dragoons/chonky/idle2.png" id="2_hhdd0"]
+[ext_resource type="Texture2D" uid="uid://dsio7vp8527d5" path="res://assets/dragoons/chonky/egg1.png" id="3_6ck15"]
+[ext_resource type="Texture2D" uid="uid://dc1e7o401t8tj" path="res://assets/dragoons/chonky/egg2.png" id="4_hs5aj"]
+[ext_resource type="Texture2D" uid="uid://b4xbbb3akgmgf" path="res://assets/dragoons/chonky/egg3.png" id="5_m0bqh"]
+[ext_resource type="Texture2D" uid="uid://bx8q58aq0vw7v" path="res://assets/dragoons/chonky/egg4.png" id="6_ipuxk"]
+[ext_resource type="Texture2D" uid="uid://bsxj44ocetko2" path="res://assets/dragoons/chonky/egg5.png" id="7_2q3u0"]
+[ext_resource type="Texture2D" uid="uid://cqlv46ouvjoo8" path="res://assets/dragoons/chonky/a01.png" id="8_ju5u1"]
+[ext_resource type="Texture2D" uid="uid://dtmlpoggkynmc" path="res://assets/dragoons/chonky/a02.png" id="9_7pqr8"]
+[ext_resource type="Texture2D" uid="uid://c3iveeo3182gl" path="res://assets/dragoons/chonky/a03.png" id="10_eidnd"]
+[ext_resource type="Texture2D" uid="uid://cubyylmsm47gn" path="res://assets/dragoons/chonky/a04.png" id="11_8v03k"]
+[ext_resource type="Texture2D" uid="uid://binkvvkvyfah0" path="res://assets/dragoons/bomb_effect/b1.png" id="12_ry2x8"]
+[ext_resource type="Texture2D" uid="uid://b5kkqfyb3v1dq" path="res://assets/dragoons/bomb_effect/b2.png" id="13_g2uld"]
+[ext_resource type="Texture2D" uid="uid://cv1ftrhqumrwo" path="res://assets/dragoons/bomb_effect/b3.png" id="14_f5gbf"]
+[ext_resource type="Texture2D" uid="uid://d0bpeyq27x7s6" path="res://assets/dragoons/bomb_effect/b4.png" id="15_yrlr0"]
+[ext_resource type="Texture2D" uid="uid://cnjjhrxssubfn" path="res://assets/dragoons/bomb_effect/b5.png" id="16_8rapj"]
+
+[sub_resource type="Animation" id="Animation_05sap"]
+resource_name = "kamikaze"
+step = 0.2
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"dying", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExplosionSprite2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hhdd0"]
+_data = {
+&"kamikaze": SubResource("Animation_05sap")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ct8wk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_05sap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hhdd0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_05sap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hhdd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_05sap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hhdd0")
+}],
+"loop": false,
+"name": &"dying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"invisible",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6ck15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hs5aj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m0bqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ipuxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2q3u0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_05sap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hhdd0")
+}],
+"loop": true,
+"name": &"spawn",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ju5u1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7pqr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_eidnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8v03k")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ljk2"]
+radius = 105.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b7w5j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_ry2x8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_g2uld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_f5gbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_yrlr0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8rapj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ChonkyDragoon" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hhdd0")
+}
+
+[node name="RespawnTimer" type="Timer" parent="."]
+editor_description = "Time till ChonkyDragoon respawns after explodng"
+
+[node name="CharacterSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ct8wk")
+animation = &"spawn"
+autoplay = "spawn"
+frame_progress = 0.672143
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_1ljk2")
+
+[node name="ExplosionSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_b7w5j")
+frame = 4
+frame_progress = 0.0971097

@@ -1,8 +1,9 @@
 AnimatedSprite2D
-Area2D
-Node2D
 Timer
+Area2D
 CollisionShape2D
+AnimationPlayer
+Node2D
 CharacterBody2D
 RichTextLabel
 CenterContainer
@@ -10,5 +11,4 @@ TextureRect
 Button
 MarginContainer
 Label
-AnimationPlayer
 PanelContainer

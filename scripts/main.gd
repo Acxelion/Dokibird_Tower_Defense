@@ -82,8 +82,7 @@ func _ready():
 	for idx in range(len(enemy_filepaths)):
 		spawners.append(load(spawner_filepath).instantiate()) 	# instantiate spawner
 		spawners[-1].travel_path = enemy_routes[0]					# assign path spawned enemies will take
-		spawners[-1].enemy_scene = load(enemy_filepaths[idx])
-		# spawners[-1].pause()											# make sure the spawner is Globals.paused_status
+		spawners[-1].enemy_scene = load(enemy_filepaths[idx])										# make sure the spawner is Globals.paused_status
 		
 		# connecting signals
 		spawners[-1].connect_to_spawn_signal(_on_enemy_spawned)	# call this function whenever enemy spawned

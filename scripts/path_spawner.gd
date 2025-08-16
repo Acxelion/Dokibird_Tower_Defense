@@ -67,6 +67,7 @@ func _on_spawn_timer_timeout() -> void:
 		enemy_spawned.emit(enemy) # signal enemy spawned and share to allow updating of values
 		enemy.enemy_destroyed.connect(_on_enemy_destroyed)
 		enemy.successful_enemy_attack.connect(_on_enemy_attacks)
+		enemy.health = int(enemy.base_health * (Globals.current_wave / 10) )
 		
 		# add to game tree
 		follow_route.add_child(enemy)				# add enemy as child of follow_route
