@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 @onready var parent = get_parent()
 @onready var anim = $AnimationPlayer
+@onready var death_sounds: Array[AudioStream] = [preload("res://assets/resources/grunt_1.tres"),]
 
 var speed: int = base_speed
 var health: int = base_health
@@ -44,6 +45,9 @@ func get_damage(damage_taken: int) -> bool:
 	if health <= 0:
 		# emit signal for game manager that enemy was destroyed
 		enemy_destroyed.emit(value)
+		
+		# play death track
+		SfxManager.play_sfx(death_sounds.pick_random())
 		
 		# remove this unit and its forefathers
 		parent.get_parent().queue_free()

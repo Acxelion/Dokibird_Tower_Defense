@@ -15,3 +15,8 @@ res://scripts/ui.gd
 res://scripts/Globals.gd
 res://scripts/scene_manager.gd
 res://scripts/main_menu.gd
+res://assets/credits.txt
+res://scripts/enemy.gd
+res://assets/resources/bgm_test.tres
+res://scripts/sfx_manager.gd
+res://scripts/SfxManager.gd
