@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://h1mqx8lhgx01"]
+
+[ext_resource type="Script" uid="uid://ck3hr0428jdyq" path="res://scripts/explosion.gd" id="1_3hlic"]
+[ext_resource type="Texture2D" uid="uid://b0xdiytsrmqxw" path="res://assets/explosion/b1.png" id="1_daf2a"]
+[ext_resource type="Texture2D" uid="uid://b47hpmso6sr0o" path="res://assets/explosion/b2.png" id="2_3hlic"]
+[ext_resource type="Texture2D" uid="uid://8exr5255t2xv" path="res://assets/explosion/b3.png" id="3_s02fq"]
+[ext_resource type="Texture2D" uid="uid://bt0n521cf680r" path="res://assets/explosion/b4.png" id="4_xbaus"]
+[ext_resource type="Texture2D" uid="uid://ddmxg2ivwoc6y" path="res://assets/explosion/b5.png" id="5_d5wi0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3wqlk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_daf2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3hlic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s02fq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xbaus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d5wi0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1su4j"]
+radius = 90.0
+
+[node name="Explosion" type="Node2D"]
+script = ExtResource("1_3hlic")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_3wqlk")
+frame = 3
+frame_progress = 0.624988
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+shape = SubResource("CircleShape2D_1su4j")
+
+[connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

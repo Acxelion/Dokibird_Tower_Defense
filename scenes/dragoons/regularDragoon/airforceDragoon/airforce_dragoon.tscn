@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://ugfdfx4joy4g"]
+
+[ext_resource type="Script" uid="uid://bdnfktk6dppgn" path="res://scripts/airforce_dragoon.gd" id="1_8puiv"]
+[ext_resource type="Texture2D" uid="uid://cuojxtom6jsn0" path="res://assets/dragoons/airforce-dragoons/a1.png" id="1_p8fb3"]
+[ext_resource type="Texture2D" uid="uid://bydvyljk80ldt" path="res://assets/dragoons/airforce-dragoons/a2.png" id="2_8puiv"]
+[ext_resource type="Texture2D" uid="uid://buflm1rg217t1" path="res://assets/dragoons/airforce-dragoons/a3.png" id="3_tu784"]
+[ext_resource type="Texture2D" uid="uid://h6woc6kcw8v6" path="res://assets/dragoons/airforce-dragoons/a4.png" id="4_p71ec"]
+[ext_resource type="Texture2D" uid="uid://daomf4n1vfux7" path="res://assets/dragoons/airforce-dragoons/i1.png" id="5_wo7nj"]
+[ext_resource type="Texture2D" uid="uid://dduwghv6ujtsu" path="res://assets/dragoons/airforce-dragoons/i2.png" id="6_sp43p"]
+[ext_resource type="Texture2D" uid="uid://lapiekguci1x" path="res://assets/dragoons/airforce-dragoons/i3.png" id="7_ccdb3"]
+[ext_resource type="Texture2D" uid="uid://xhjsmahebdyi" path="res://assets/dragoons/airforce-dragoons/i4.png" id="8_rwehb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4g7k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p8fb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8puiv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tu784")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p71ec")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wo7nj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sp43p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ccdb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rwehb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yulus"]
+radius = 60.0
+height = 146.0
+
+[node name="AirforceDragoon" type="Node2D"]
+script = ExtResource("1_8puiv")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+rotation = -1.5708
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_i4g7k")
+animation = &"idle"
+frame_progress = 0.309087
+
+[node name="CollisionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_yulus")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

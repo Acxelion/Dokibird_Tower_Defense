@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b0qupb1cb2516"]
 
-[ext_resource type="Script" uid="uid://bonbq57qcr20l" path="res://scenes/dragoons/regularDragoon/tomatoGoon/tomato_impact.gd" id="1_7e6bd"]
+[ext_resource type="Script" uid="uid://bonbq57qcr20l" path="res://scripts/tomato_impact.gd" id="1_7e6bd"]
 [ext_resource type="Texture2D" uid="uid://c5etyhai6la5y" path="res://assets/projectiles/projectile2.png" id="1_x2c0b"]
 
 [sub_resource type="Animation" id="Animation_jkcac"]
