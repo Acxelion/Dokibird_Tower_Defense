@@ -76,10 +76,6 @@ func _purchase_turret(event: InputEvent) -> void:
 		get_child(1).process_mode = Node.PROCESS_MODE_DISABLED
 		
 		# define dictionary to collect the unique parents of all found_overlaps
-		#var unique_parents: Dictionary = {}
-		#for ele in found_overlaps:
-			#if ele.get_parent() != get_child(1):	# prevents counting of itself
-				#unique_parents.get_or_add(ele.get_parent())
 		var valid_overlaps: int = found_overlaps.reduce(func (accum, ele): return accum + (1 if ele.is_in_group("collision_area") else 0), 0)
 		is_on_turret = ( valid_overlaps != 0 )
 		
@@ -103,6 +99,9 @@ func _purchase_turret(event: InputEvent) -> void:
 			if Globals.paused_status == true:
 				temp_turret.pause()
 			temp_turret.global_position = event.global_position # assigns its position to where the mouse is
+			
+			if temp_turret.has_signal("add_currency"):
+				temp_turret.add_currency.connect(path._on_currency_added)
 			
 			turret_purchased.emit(assigned_turret_data.cost) # emit signal to inform successful turret purchase
 			

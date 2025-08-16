@@ -190,6 +190,13 @@ func _on_enemy_attacks(damage_taken: int):
 	if waves[Globals.current_wave].enemies_remaining <= 0: # calls wave_finished() if no more enemies remain
 		wave_finished()
 
+# called when a currency farming tower has gained currency
+# NOTE: connected inside buy_icon.gd
+func _on_currency_added(amount: int):
+	Globals.wallet = Globals.wallet + amount
+	
+	ui.update_currency_label(Globals.wallet)
+
 func _on_spawner_finished():
 	#print("A SPAWNER FINISHED")
 	pass
